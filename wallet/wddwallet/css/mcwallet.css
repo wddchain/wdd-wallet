@@ -1,0 +1,87 @@
+body
+{
+	-webkit-user-select: none;
+}
+
+.navbar-brand
+{
+	min-height: 65px;
+}
+
+#main_address
+{
+	-webkit-user-select: text !important;
+	cursor: text !important;
+}
+
+#balance
+{
+	-webkit-user-select: text !important;
+	cursor: text !important;
+	font-weight: bold;
+}
+
+#fiat_value
+{
+	-webkit-user-select: text !important;
+	cursor: text !important;
+	font-weight: bold;
+}
+
+*
+{
+	cursor: default !important;
+}
+
+input
+{
+	cursor: text !important;
+}
+
+#wallet_logo
+{
+	height: 40px;
+}
+
+#main_address_qrcode img
+{
+	height: 224px;
+}
+
+#fee_notice
+{
+	font-size: 0.8em;
+}
+
+#amount_alert
+{
+	color: #ff0000;
+	font-size: 0.8em;
+}
+
+#transaction_table
+{
+	width: 100%;
+}
+
+img
+{
+	pointer-events: none
+}
+
+#app_icon img
+{
+	width: 128px;
+	height: 128px;
+}
+
+#app_name
+{
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#app_description
+{
+	margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+{
+ "debug": true,
+ "native_currency": "WDD",
+ "window_title": "The World Diamond Wallet",
+ "chainname": "wdd",
+ "multichain": {
+  "port": 6764,
+  "host": "127.0.0.1",
+  "user": "multichainrpc",
+  "seed": "192.168.0.174:6765",
+  "pass": "C7Tw5Pm6w4De5rAPfhEAfbGGBv4xALMHULRqaWgAahRc"
+ }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wallet</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mcwallet.css" rel="stylesheet">
+  </head>
+  <body>
+	
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-brand navbar-left">
+				<img id="wallet_logo" src="images/wallet_logo.png"/> 
+				<script>document.write(global.wallet_settings.window_title);</script>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container" style="text-align: center;">
+		<p>Show the QR code of an address below.</p>
+		<div id="reader" style="margin-left: auto; margin-right: auto; width:400px; height:250px"></div>
+		<p style="margin-top: 30px;">
+			<button class="btn btn-default" id="cancel_button">Cancel</button>
+		</p>
+	</div>
+	
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/html5-qrcode.min.js"></script>
+    <script src="js/mcwallet_qrcodereader.js"></script>
+    <script src="js/mcwallet_global.js"></script>
+  </body>
+</html>

@@ -9,6 +9,7 @@ var multichainCommand = 'multichaind ' + wallet_settings.chainname + ' -daemon';
 
 function startMultchain(multichainCommand, seed) {
   console.log(multichainCommand);
+  $('#status').html('Starting multichaind');
   var exec = require('child_process').exec, child;
   child = exec(multichainCommand,
     function (error, stdout, stderr)
@@ -25,8 +26,9 @@ function startMultchain(multichainCommand, seed) {
         }
         else if (stdout.toString().indexOf("Please ask blockchain admin or user having activate permission to let you connect") > -1) 
         {
-          displayError('Connection permission required.\n\npermission_request.txt contains info for admin.\n\nDetails: '+stdout);
           fs.writeFileSync('permission_request.txt', stdout, 'utf8');
+          //$('#status').html(stdout);
+          displayError('Connection permission required.\n\npermission_request.txt contains info for admin.\n\nDetails: '+stdout);
         }
         else if (stdout.toString().indexOf("Error: Couldn't connect to the seed node") > -1) 
         {
@@ -38,6 +40,7 @@ function startMultchain(multichainCommand, seed) {
         }
         else if (stderr.toString().indexOf("ERROR: Parameter set for blockchain wdd is not complete.") > -1)  //Chain not initialized/found/seeded
         {
+          $('#status').html('Seeding multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed);
           //Wait a bit and then seed the chain
           setTimeout(function(){ seedMultichain(); }, 1000 * 5);  
         }
@@ -56,6 +59,7 @@ function startMultchain(multichainCommand, seed) {
     console.log('some data:' + data);
 
     if (seed && data.toString().indexOf("Retrieving blockchain parameters from the seed node") > -1) {
+      $('#status').html('Obtaining chain settings and configuring wallet.');
       setTimeout(function(){ delayedSetPass(wallet_settings.chainname); }, 1000 * 3);
     }
 
@@ -80,7 +84,9 @@ function delayedSetPass(chainname) {
   var pass = getPass(chainname);
   //console.log('pass: ' + pass);
   setPass(pass);
-  window.location = 'index.html'; 
+  console.log('Finished setting pwd');
+  setTimeout(function(){ window.location = 'index.html'; }, 1000 * 10);  //Give it some time to seed  
+   
 }
 
 function displayError(error) {
@@ -90,7 +96,7 @@ function displayError(error) {
 }
 
 function getPass(chainname) {
-  return(getConfigSetting(getUserHome() +' /.multichain/' + chainname + '/multichain.conf', 'rpcpassword'));
+  return(getConfigSetting(getUserHome() + '/.multichain/' + chainname + '/multichain.conf', 'rpcpassword'));
 }
 
 function getUserHome() {
@@ -122,7 +128,7 @@ function setPass(pass) {
   } catch(e) {
     alert('Unable to save pass to ' + configurationFile);
   }
-  global.wallet_settings.multichain.pass = pass;    
+  global.wallet_settings.multichain.pass = pass;
 }
 
 startMultchain(multichainCommand);

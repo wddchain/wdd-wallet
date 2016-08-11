@@ -90,7 +90,11 @@ function displayError(error) {
 }
 
 function getPass(chainname) {
-  return(getConfigSetting('/home/tron/.multichain/' + chainname + '/multichain.conf', 'rpcpassword'));
+  return(getConfigSetting(getUserHome() +' /.multichain/' + chainname + '/multichain.conf', 'rpcpassword'));
+}
+
+function getUserHome() {
+  return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
 
 function getConfigSetting(file, key) {

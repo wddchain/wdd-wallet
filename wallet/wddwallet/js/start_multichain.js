@@ -12,7 +12,7 @@ var multichainStartVM = '';
 if (wallet_settings.vmname != '') {
   multichainArgs = multichainArgs + ' -rpcallowip=0.0.0.0/0 -rpcbind=10.0.2.15';
   if (isWin) {
-    multichainStartVM = '\"%ProgramFiles%\\Oracle\\VirtualBox\\VBoxManage.exe\" startvm '+wallet_settings.vmname+' -type headless & ';
+    multichainStartVM = '\"%ProgramFiles%\\Oracle\\VirtualBox\\VBoxManage.exe\" startvm '+wallet_settings.vmname+' -type headless >nul & ';
     multichainCommandRunner = 'plink -P 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
     //multichainCommandRunner = 'bashfix "bash -c run.sh ';
   }
@@ -79,8 +79,9 @@ function startMultichain(multichainCommand, seed) {
       }
   });
 
+  // PLINK always enforces StrictHostKeyChecking, but we can't know the fingerprint
   child.stderr.on('data', function (data) {
-    console.log('some err:' + data);
+    //console.log('some err:' + data);
     if (data.toString().indexOf("Store key in cache? (y/n)") > -1) {
       child.stdin.setEncoding('utf-8');
       child.stdin.write('y');
@@ -92,6 +93,7 @@ function startMultichain(multichainCommand, seed) {
 
     if (seed && data.toString().indexOf("Retrieving blockchain parameters from the seed node") > -1) {
       $('#status').html('Obtaining chain settings and configuring wallet.');
+      // No need for setting the password, since we start multichaind with the pass from the settings file
       //setTimeout(function(){ delayedSetPass(wallet_settings.chainname); }, 1000 * 3);
     }
 

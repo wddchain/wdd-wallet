@@ -1,17 +1,32 @@
 var fs = require('fs');
 var wallet_settings = JSON.parse(fs.readFileSync('./wallet_settings.json').toString());
 
-var multichainCommand = 'multichaind ' + wallet_settings.chainname + ' -daemon';
+var multichainCommand = 'multichain-1.0-alpha-23/multichaind ' + wallet_settings.chainname;
+var multichainArgs = ' -daemon -listen=0 -rpcpassword='+wallet_settings.multichain.pass+' -rpcport=' + wallet_settings.multichain.port;
+var multichainCommandRunner = '';
 
-// var isWin = /^win/.test(process.platform);
-// if (isWin) multichainCommand = 'multichaind wdd -daemon';
+var isWin = /^win/.test(process.platform);
 
+// VM mode: resume the virtual machine and start multichain over ssh
+var multichainStartVM = '';
+if (wallet_settings.vmname != '') {
+  multichainArgs = multichainArgs + ' -rpcallowip=0.0.0.0/0 -rpcbind=10.0.2.15';
+  if (isWin) {
+    multichainStartVM = '\"%ProgramFiles%\\Oracle\\VirtualBox\\VBoxManage.exe\" startvm '+wallet_settings.vmname+' -type headless >nul & ';
+    multichainCommandRunner = 'plink -P 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
+    //multichainCommandRunner = 'bashfix "bash -c run.sh ';
+  }
+  else {
+    multichainStartVM = 'VBoxManage startvm '+wallet_settings.vmname+' -type headless ; ';
+    multichainCommandRunner = 'ssh -o StrictHostKeyChecking=no -p 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
+  }
+}
 
-function startMultchain(multichainCommand, seed) {
-  console.log(multichainCommand);
+function startMultichain(multichainCommand, seed) {
+  console.log(multichainStartVM + multichainCommandRunner + multichainCommand + multichainArgs);
   $('#status').html('Starting multichaind');
   var exec = require('child_process').exec, child;
-  child = exec(multichainCommand,
+  child = exec(multichainStartVM + multichainCommandRunner + multichainCommand + multichainArgs,
     function (error, stdout, stderr)
     {
       console.log('stdout: ' + stdout);
@@ -19,16 +34,17 @@ function startMultchain(multichainCommand, seed) {
       console.log('error: ' + error);
       if(error == null)
       {
-        if (stderr.toString().indexOf("MultiChain Core is probably already running") > -1)
+        if (stderr.toString().indexOf(" already running.") > -1)
         {
-          // multichain already running
-          window.location = 'index.html';
+          window.location = 'index.html';        
         }
         else if (stdout.toString().indexOf("Please ask blockchain admin or user having activate permission to let you connect") > -1) 
         {
           fs.writeFileSync('permission_request.txt', stdout, 'utf8');
           //$('#status').html(stdout);
-          displayError('Connection permission required.\n\npermission_request.txt contains info for admin.\n\nDetails: '+stdout);
+          var localAddress = /grant (.+) connect/.exec(stdout)[1];
+          prompt('Connection permission required.\n\npermission_request.txt contains info for admin.\n\nDetails: '+stdout, localAddress);
+          window.close();
         }
         else if (stdout.toString().indexOf("Error: Couldn't connect to the seed node") > -1) 
         {
@@ -38,11 +54,19 @@ function startMultchain(multichainCommand, seed) {
         {
           //window.location = 'index.html';        
         }
-        else if (stderr.toString().indexOf("ERROR: Parameter set for blockchain wdd is not complete.") > -1)  //Chain not initialized/found/seeded
+        else if (stderr.toString().indexOf(" is not complete.") > -1)  //Chain not initialized/found/seeded
         {
-          $('#status').html('Seeding multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed);
-          //Wait a bit and then seed the chain
-          setTimeout(function(){ seedMultichain(); }, 1000 * 5);  
+          wallet_settings.multichain.seed = prompt("Please enter the IP:port of a node on the network:", wallet_settings.multichain.seed);
+          if (wallet_settings.multichain.seed)
+          {
+            $('#status').html('Seeding multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed);
+            //Wait a bit and then seed the chain
+            setTimeout(function(){ seedMultichain(); }, 1000 * 5);  
+          }
+          else 
+          {
+            window.close()
+          }
         }
         else
         {
@@ -51,8 +75,17 @@ function startMultchain(multichainCommand, seed) {
       }
       else
       {
-        displayError(error);   
+        displayError(stdout+error);   
       }
+  });
+
+  // PLINK always enforces StrictHostKeyChecking, but we can't know the fingerprint
+  child.stderr.on('data', function (data) {
+    //console.log('some err:' + data);
+    if (data.toString().indexOf("Store key in cache? (y/n)") > -1) {
+      child.stdin.setEncoding('utf-8');
+      child.stdin.write('y');
+    }
   });
 
   child.stdout.on('data', function (data) {
@@ -60,21 +93,22 @@ function startMultchain(multichainCommand, seed) {
 
     if (seed && data.toString().indexOf("Retrieving blockchain parameters from the seed node") > -1) {
       $('#status').html('Obtaining chain settings and configuring wallet.');
-      setTimeout(function(){ delayedSetPass(wallet_settings.chainname); }, 1000 * 3);
+      // No need for setting the password, since we start multichaind with the pass from the settings file
+      //setTimeout(function(){ delayedSetPass(wallet_settings.chainname); }, 1000 * 3);
     }
 
     if (data.toString().indexOf("Node started") > -1) {
       window.location = 'index.html';        
     }
-  })
+  });
 
 }
 
 function seedMultichain() {
   console.log('Seeding chain');
-  multichainCommand = 'multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed + ' -daemon';
+  multichainCommand = 'multichain-1.0-alpha-23/multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed;
   console.log("Command: " + multichainCommand);
-  startMultchain(multichainCommand, true);  //Start again, with seed set to true
+  startMultichain(multichainCommand, true);  //Start again, with seed set to true
 }
 
 
@@ -131,4 +165,4 @@ function setPass(pass) {
   global.wallet_settings.multichain.pass = pass;
 }
 
-startMultchain(multichainCommand);
+startMultichain(multichainCommand);

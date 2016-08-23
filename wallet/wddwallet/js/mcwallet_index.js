@@ -363,7 +363,7 @@ function loadOwnedAssets()
 
 function sendCommand(command) 
 {
-	//console.log("Command is: " + command);
+	console.log("Command is: " + command);
 
 	if (command=='get_available_balance' || command == 'get_estimated_balance')
 	{
@@ -386,7 +386,7 @@ function sendCommand(command)
 	  	{
 	  		mainAddress = '(Unable to get address.)';
 	  	}
-	  	//console.log('mainAddress is ' + mainAddress);
+	  	console.log('mainAddress is ' + mainAddress);
 			guiUpdate();
 
 	  });	

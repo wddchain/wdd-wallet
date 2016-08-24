@@ -59,5 +59,6 @@ win.on('close', function()
   else
   {
     console.log('Multichain was not connected. Unable to stop multichain');
+    win.close(true);
   }
 });

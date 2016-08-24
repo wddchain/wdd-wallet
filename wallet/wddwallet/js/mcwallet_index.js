@@ -21,6 +21,8 @@ var win = gui.Window.get();
 var clipboard = gui.Clipboard.get();
 var moment = require('moment');
 
+
+console.log ('locales: ' + process.env.PWD + '/locales');
 console.log('After multichain init');
 
 if (typeof String.prototype.startsWith != 'function') {
@@ -48,6 +50,15 @@ $('#fiat_currency_setting').change(function()
 	{
 		guiUpdate();
 	}
+});
+
+$('#language_setting').change(function()
+{
+	var lang = $('#language_setting').val();
+  localStorage.setItem('language_setting', lang);
+  i18n.setLocale(lang);
+  console.log('Language set to ' + lang);
+  window.location='index.html';
 });
 
 $('#paste_address_button').click(function() 
@@ -160,6 +171,10 @@ function guiUpdate()
 			$('#fiat_value').html('');
 			$('#fiat_currency').html('');
 		}
+	}
+
+	if (localStorage.getItem('language_setting')) {
+		$('#language_setting').val(localStorage.getItem('language_setting'));
 	}
 	
 	if (typeof mainAddress!='undefined')
@@ -690,13 +705,13 @@ function loadAndShowApps()
 
 function makePermissionString(permission) {
 	var t = '';
-	t += permText(permission.connect, 'Connect', permission);
-	t += permText(permission.send, 'Send', permission);
-	t += permText(permission.receive, 'Receive', permission);
-	t += permText(permission.issue, 'Issue', permission);
-	t += permText(permission.mine, 'Mine', permission);
-	t += permText(permission.admin, 'Admin', permission);
-	t += permText(permission.activate, 'Activate', permission);
+	t += permText(permission.connect, i18n.__('Connect'), permission);
+	t += permText(permission.send, i18n.__('Send'), permission);
+	t += permText(permission.receive, i18n.__('Receive'), permission);
+	t += permText(permission.issue, i18n.__('Issue'), permission);
+	t += permText(permission.mine, i18n.__('Mine'), permission);
+	t += permText(permission.admin, i18n.__('Admin'), permission);
+	t += permText(permission.activate, i18n.__('Activate'), permission);
 
 	return(t);
 }

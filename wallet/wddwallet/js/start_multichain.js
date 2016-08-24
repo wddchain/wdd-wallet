@@ -7,7 +7,7 @@ var multichainCommand = 'multichaind ' + wallet_settings.chainname + ' -daemon';
 // if (isWin) multichainCommand = 'multichaind wdd -daemon';
 
 
-function startMultchain(multichainCommand, seed) {
+function startMultichain(multichainCommand, seed) {
   console.log(multichainCommand);
   $('#status').html('Starting multichaind');
   var exec = require('child_process').exec, child;
@@ -131,4 +131,4 @@ function setPass(pass) {
   global.wallet_settings.multichain.pass = pass;
 }
 
-startMultchain(multichainCommand);
+startMultichain(multichainCommand);

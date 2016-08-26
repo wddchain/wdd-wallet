@@ -1,3 +1,6 @@
+#Allow
+!wallet/wddwallet/node_modules/multichain-node
+
 # Logs
 logs
 *.log
@@ -27,7 +30,7 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
+# node_modules
 jspm_packages
 
 # Optional npm cache directory
@@ -38,4 +41,4 @@ jspm_packages
 
 permission_request.txt
 
-!wallet/wddwallet/node_modules/multichain-node
+

@@ -37,3 +37,5 @@ jspm_packages
 .node_repl_history
 
 permission_request.txt
+
+!wallet/wddwallet/node_modules/multichain-node

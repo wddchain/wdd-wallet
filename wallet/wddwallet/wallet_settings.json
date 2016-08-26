@@ -7,7 +7,7 @@
  "multichain": {
   "port": 8333,
   "host": "127.0.0.1",
-  "seed": "10.0.2.2:4415",
+  "seed": "52.63.40.79:8348",
   "user": "multichainrpc",
   "seed": "192.168.0.174:6765",
   "pass": "ADp4iFsUHzikjYErsov5xfe27W2kzpG5vWHQQWizEcfP"

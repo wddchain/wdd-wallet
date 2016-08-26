@@ -597,9 +597,9 @@ function createTransactionTable(txs)
 	var transactionTable = '';
 	
 	transactionTable += '<tr>';
-	transactionTable += '<th>Date time</th>';
-	transactionTable += '<th>Address</th>';
-	transactionTable += '<th>Qty</th>';
+	transactionTable += '<th>' + i18n.__('Date time') + '</th>';
+	transactionTable += '<th>' + i18n.__('Address') + '</th>';
+	transactionTable += '<th>' + i18n.__('Qty') + '</th>';
 	transactionTable += '</tr>';
 	
 	//console.log(txs);

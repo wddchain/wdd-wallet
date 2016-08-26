@@ -8,7 +8,7 @@ global.multichain = require("multichain-node")(global.wallet_settings.multichain
 var i18n = require('i18n');
 i18n.configure({
   locales: ['en', 'zh-cn', 'zh-hk'],
-  directory: process.env.PWD + '/locales'
+  directory: 'locales'
 });
 
 

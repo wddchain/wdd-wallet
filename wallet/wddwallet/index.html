@@ -27,7 +27,7 @@
 		<ul class="nav nav-tabs" id="main_tabs">
 			<li class="active"><a href="#main_address_tab" data-toggle="tab" translate>My Address</a></li>
 			<li><a href="#send_currency_tab" data-toggle="tab"><span translate>Send</span> <script>document.write(global.wallet_settings.native_currency);</script></a></li>
-			<li><a href="#send_asset_tab" data-toggle="tab" translate>Send Asset</a></li>
+			<li><a href="#send_asset_tab" data-toggle="tab" translate>Send Voucher</a></li>
 			<li><a href="#history_tab" data-toggle="tab" translate>History</a></li>
 			<li><a href="#settings_tab" data-toggle="tab" translate>Settings</a></li>
 		</ul>
@@ -77,10 +77,10 @@
 			
 			<div style="display: none;" class="alert alert-success" id="sending_asset_status"></div>
 			
-			<p translate>Want to send an asset to someone? Fill in the form below.</p>
+			<p translate>Want to send a voucher? Fill in the form below.</p>
 
 			<div class="form-group">
-				<label for="asset" translate>Asset: </label>
+				<label for="asset" translate>Voucher: </label>
 				<select class="form-control" id="asset" placeholder="Choose" />
 				<option>IDS</option>
 				</select>
@@ -88,14 +88,14 @@
 			
 			<div class="form-group">
 				<label for="send_asset_to_address" translate>Send to: </label>
-				<input type="text" class="form-control" id="send_asset_to_address" placeholder="Type the address to which you want to send an asset" />
+				<input type="text" class="form-control" id="send_asset_to_address" placeholder="Type the address to which you want to send" />
 				<button type="submit" class="btn btn-default" id="qr_code_reader_asset_button" translate>Scan QR Code</button>
 				<button type="submit" class="btn btn-default" id="paste_asset_address_button" translate>Paste</button>
 			</div>
 			
 			<div class="form-group">
 				<label for="send_to_address"><span translate>Amount:</span> <span id="amount_alert"></span> </label>
-				<input type="text" class="form-control" id="asset_amount_to_send" placeholder="Type the amount of the asset you wish to send"  />
+				<input type="text" class="form-control" id="asset_amount_to_send" placeholder="Type the amount you wish to send"  />
 			</div>
 			
 			<!--
@@ -105,7 +105,7 @@
 			</div>
 			-->
 			
-			 <button type="submit" class="btn btn-default" id="send_asset_button" translate>Send Asset</button>
+			 <button type="submit" class="btn btn-default" id="send_asset_button" translate>Send</button>
 			
 		</div>
 

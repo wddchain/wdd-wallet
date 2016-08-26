@@ -6,6 +6,7 @@ var multichainArgs = ' -daemon -listen=0 -rpcpassword='+wallet_settings.multicha
 var multichainCommandRunner = '';
 
 var isWin = /^win/.test(process.platform);
+var isMac = /^darwin/.test(process.platform);
 
 // VM mode: resume the virtual machine and start multichain over ssh
 var multichainStartVM = '';
@@ -16,9 +17,14 @@ if (wallet_settings.vmname != '') {
     multichainCommandRunner = 'plink -P 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
     //multichainCommandRunner = 'bashfix "bash -c run.sh ';
   }
-  else {
+  else if (isMac) {
     multichainStartVM = 'VBoxManage startvm '+wallet_settings.vmname+' -type headless ; ';
     multichainCommandRunner = 'ssh -o StrictHostKeyChecking=no -p 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
+  }
+  else //Native multichaind
+  {
+    multichainCommand = 'multichaind ' + wallet_settings.chainname;
+    multichainArgs = ' -daemon -listen=0 -rpcpassword='+wallet_settings.multichain.pass+' -rpcport=' + wallet_settings.multichain.port;
   }
 }
 

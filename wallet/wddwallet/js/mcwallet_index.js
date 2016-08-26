@@ -13,8 +13,13 @@ var qrcode = new QRCode('main_address_qrcode');
 var sendingStatus;
 var transactionTable;
 
-var wallet_settings = global.wallet_settings;
-var multichain = global.multichain;
+var fs = require('fs');
+wallet_settings = JSON.parse(fs.readFileSync('./wallet_settings.json').toString());
+console.log(global.wallet_settings);
+multichain = require("multichain-node")(wallet_settings.multichain);
+
+//var wallet_settings = global.wallet_settings;
+//var multichain = global.multichain;
 
 var gui = require('nw.gui');
 var win = gui.Window.get();

@@ -1,6 +1,8 @@
 {
   "name": "Wallet",
   "main": "start_multichain.html",
+  "version": "0.9.0",
+  "description": "WDD Wallet",  
   "window": {
     "title": "Wallet",
     "icon": "images/wallet_logo.png",

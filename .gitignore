@@ -1,6 +1,10 @@
 #Allow
 !wallet/wddwallet/node_modules/multichain-node
 
+wallet/output
+wallet/vbox_setup/VirtualBoxSetup.exe
+wallet/multichain_appliance/wddwallet.ova
+
 # Logs
 logs
 *.log

@@ -1,0 +1,22 @@
+!#bin/sh
+
+echo "Make sure wddwallet.ova is in multichain_appliance folder."
+echo ""
+
+echo "Make sure VirtualBoxSetup.exe is in vbox_setup folder.  Rename version to VirtualBoxSetup.exe"
+echo ""
+
+npm install nwjs-builder -g
+cd wddwallet
+nwb nwbuild -p win32 -o ../output
+cd ..
+
+echo "Install wine with:"
+echo "apt install wine"
+
+echo "Use:"
+echo "wine C:\Program Files (x86)\Inno Setup 5\Compil32.exe"
+echo "Load the InnoSetupScript.iss and build."
+wine "C:\Program Files (x86)\Inno Setup 5\Compil32.exe" InnoSetupScript.iss & > nul
+
+

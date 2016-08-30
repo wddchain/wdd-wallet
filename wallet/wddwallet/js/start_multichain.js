@@ -13,7 +13,7 @@ var multichainStartVM = '';
 if (wallet_settings.vmname != '') {
   multichainArgs = multichainArgs + ' -rpcallowip=0.0.0.0/0 -rpcbind=10.0.2.15';
   if (isWin) {
-    multichainStartVM = '\"%ProgramFiles%\\Oracle\\VirtualBox\\VBoxManage.exe\" startvm '+wallet_settings.vmname+' -type headless >nul & ';
+    multichainStartVM = '\"C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe\" startvm '+wallet_settings.vmname+' -type headless >nul & ';
     multichainCommandRunner = 'plink -P 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
     //multichainCommandRunner = 'bashfix "bash -c run.sh ';
   }

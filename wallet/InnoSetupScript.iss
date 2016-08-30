@@ -22,6 +22,8 @@ Name: "{group}\WDDWallet"; Filename: "{app}\Wallet.exe"
 
 [Run]
 Filename: "{app}\VirtualBoxSetup.exe";  Description: "Installing VM to handle core wallet functions"
-Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import {app}/wddwallet.ova"; Description: "Installing wallet VM"
+Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import {app}/wddwallet.ova"; Description: "Installing wallet VM"; Flags: runminimized
+Filename: "{app}\Wallet.exe"; Flags: postinstall
+
 
 

@@ -17,6 +17,14 @@ echo "apt install wine"
 echo "Use:"
 echo "wine C:\Program Files (x86)\Inno Setup 5\Compil32.exe"
 echo "Load the InnoSetupScript.iss and build."
-wine "C:\Program Files (x86)\Inno Setup 5\Compil32.exe" InnoSetupScript.iss & > nul
+echo "Exit Inno Setup when finished - get the hashes for the new install."
+wine "C:\Program Files (x86)\Inno Setup 5\Compil32.exe" /cc InnoSetupScript.iss
 
+cd output
+echo -n 'md5 '
+echo `md5sum WddWalletSetup.exe` > checksum.txt
+echo -n 'sha256 '
+echo `sha256sum WddWalletSetup.exe` >> checksum.txt
+cat checksum.txt
+cd ..
 

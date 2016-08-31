@@ -49,16 +49,29 @@ if (global.wallet_settings.debug) {
 
 win.on('close', function() 
 {
+
 	win.hide();
 
   if (global.multichain) {
-  	global.multichain.stop([], function(err, data) {
-  		win.close(true);
-  	});	  
+    global.multichain.stop([], function(err, data) {
+      win.close(true);
+    });   
   }
   else
   {
     console.log('Multichain was not connected. Unable to stop multichain');
     win.close(true);
   }
+
+  if (wallet_settings.vmname != '')   //If using vm, then stop it
+  {
+    var stopVM = '\"' + wallet_settings.vmctrl + '\"' + ' controlvm '+ wallet_settings.vmname + ' savestate';
+    var exec = require('child_process').exec;
+    var child;
+    child = exec(stopVM, function (error, stdout, stderr) {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      console.log('error: ' + error);
+    });
+  } 
 });

@@ -1,4 +1,4 @@
-!#bin/sh
+#!/bin/sh
 
 echo "Make sure wddwallet.ova is in multichain_appliance folder."
 echo ""

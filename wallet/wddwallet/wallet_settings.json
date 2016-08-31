@@ -4,6 +4,7 @@
  "window_title": "The World Diamond Wallet",
  "chainname": "wdd",
  "vmname": "wddwallet",
+ "vmctrl": "C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe",
  "multichain": {
   "port": 8333,
   "host": "127.0.0.1",

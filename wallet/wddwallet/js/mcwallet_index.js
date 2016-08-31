@@ -1,6 +1,6 @@
 var satoshisInABitcoin = 100000000;
 
-if (localStorage.fiatCurrency==undefined) localStorage.setItem('fiatCurrency', 'GBP');
+if (localStorage.fiatCurrency==undefined) localStorage.setItem('fiatCurrency', '');
 $('#fiat_currency_setting').val(localStorage.fiatCurrency);
 
 var minFee = 0.0001;

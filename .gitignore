@@ -5,6 +5,8 @@ wallet/output
 wallet/vbox_setup/VirtualBoxSetup.exe
 wallet/multichain_appliance/wddwallet.ova
 
+package.nw
+
 # Logs
 logs
 *.log

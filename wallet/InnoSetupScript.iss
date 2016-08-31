@@ -12,7 +12,7 @@ ArchitecturesInstallIn64BitMode=ia64 x64
 
 [Files]
 Source: "output\Wallet-win-ia32\*"; DestDir: "{app}"
-Source: "output\Wallet-win-ia32\locales\*"; DestDir: "{app}"
+Source: "output\Wallet-win-ia32\locales\*"; DestDir: "{app}\locales"
 Source: "wddwallet\plink.exe"; DestDir: "{app}"
 Source: "multichain_appliance\wddwallet.ova"; DestDir: "{app}"
 Source: "vbox_setup\VirtualBoxSetup.exe"; DestDir: "{app}"
@@ -22,7 +22,7 @@ Name: "{group}\WDDWallet"; Filename: "{app}\Wallet.exe"
 
 [Run]
 Filename: "{app}\VirtualBoxSetup.exe";  Description: "Installing VM to handle core wallet functions"
-Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import {app}/wddwallet.ova"; Description: "Installing wallet VM"; Flags: runminimized
+Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import ""{app}/wddwallet.ova"""; Description: "Installing wallet VM"; Flags: runminimized
 Filename: "{app}\Wallet.exe"; Flags: postinstall
 
 

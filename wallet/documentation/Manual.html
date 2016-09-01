@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 5.3.1">
+</head>
+<body>
+<p><a name="TOC"></p>
+<h3>WDD Wallet</h3>
+<p><a href="#WinInstall">Windows Install</a><br>
+<a href="#WinBackup">Back up your Wallet</a><br>
+<a href="#Receiving">Receiving Vouchers or WDD</a><br>
+<a href="#SendWDD">Sending WDD</a><br>
+<a href="#SendVoucher">Sending a Voucher</a><br>
+<a href="#History">Transaction History</a><br>
+<a href="#Settings">Settings</a>  </p>
+<p><a name="WinInstall"></p>
+<h3>Windows Installation of WDD Wallet</h3>
+<p>Download the installer from <a href="http://64.19.211.41/wdd/WddWalletSetup.exe">http://64.19.211.41/wdd/WddWalletSetup.exe</a> to your download folder.
+Launch WddWalletSetup.exe, and follow the prompts. </p>
+<p>Note: As part of the wallet installation it will install VirtualBox.  Accept all the defaults, but when you are offered the option to run VirtualBox at the end of the installation, uncheck the box. </p>
+<p>The last page of the installer will offer to run Wallet.exe.  Keep the box checked and it will start the wallet automatically.</p>
+<p>The first time it runs, it will take some time to initialize.  Please be patient.  </p>
+<p>When it prompts to seed the chain, accept the default location.  The wallet will automatically assign you an address.  This is like your account number.  You receive and send using your address.</p>
+<p>When you see your address and your QR code, you are ready to accept WDD and Vouchers.</p>
+<h3>Verifying integrity of your installer</h3>
+<p>Because of the value of crypto, some attempts have been seen to trick people into installing compromised software.  We are not aware of any attempts to do so with this wallet, howevver, we provide an MD5 and SHA256 checksum that lets you verify the installer.  Obtain the checksums from http://<domain>/wdd/checksums.txt</p>
+<p>Use these commands in a command prompt (on Windows) to verify the checksum.  Verifying one is enough.
+Replace <file> with the filename of your download.<br>
+<code>certutil -hashfile &lt;file&gt; md5</code><br>
+<code>certutil -hashfile &lt;file&gt; sha256</code></p>
+<p><a name="WinBackup"></p>
+<h3>Backup your wallet</h3>
+<p>Back up this folder*:<br>
+<code>C:\Users\&lt;your user&gt;\Virtual Box VMs\wddwallet</code></p>
+<p>This folder can be large.  It is recommended to save to an external HD, large thumbdrive, or DVD.  </p>
+<p><small>*It is important to keep your backup in a secure location.</small></p>
+<p><a name="Receiving"></p>
+<h3>Receiving Vouchers or WDD</h3>
+<p>For others to send WDD or Assets to you, they will need your address.  </p>
+<p><a href="" target="_blank"><img src="Receiving.png"/></a></p>
+<p>You can give them the address text string which looks like this: <br>
+<code>wUCS7Qy9YzoQt1Np4XEqHVDhMGnpCSECEcWKtd</code> <br>
+Or let them scan the QR Code with their phone.  </p>
+<p>You can copy/paste the address or qr code from the application to an e-mail.  </p>
+<p><a name="SendWDD"></p>
+<h3>Sending WDD</h3>
+<p>To send WDD to others.  </p>
+<p><a href="" target="_blank"><img src="SendWDD.png"/></a></p>
+<p>Paste their address into <strong>Send to</strong>:   This is like their account number.  If you have their QR code, and your computer has a camera, then hit [Scan QR Code] to allow the camera to see the QR code image.  If it is a valid address, it will be recognized automatically and entered for you.</p>
+<p>Enter the amount you wish to send, and hit [Send].</p>
+<p>If you are connected to the internet, the WDD will be sent.  It will usually show up very quickly, but may take several minutes before it can be spent by the recipient.
+<a name="SendVoucher"></p>
+<h3>Sending a Voucher</h3>
+<p>To send a voucher.  </p>
+<p><a href="" target="_blank"><img src="SendVoucher.png"/></a></p>
+<p>Select the voucher you wish to send.  If the Voucher list is empty, you do not have any vouchers.</p>
+<p>Paste the recipient's address into <strong>Send to</strong>:  </p>
+<p>If you have their QR code, and your computer has a camera, then hit [Scan QR Code] to allow the camera to see the QR code image.  If it is a valid address, it will be recognized automatically and entered for you.</p>
+<p>Enter the amount you wish to send, and hit [Send].</p>
+<p>If you are connected to the internet, the Voucher will be sent.
+<a name="History"></p>
+<h3>Transaction History</h3>
+<p>View the transaction history of your account.</p>
+<p><a href="" target="_blank"><img src="History.png"/></a>
+<a name="Settings"></p>
+<h3>Settings</h3>
+<p>Select your preferred language.</p>
+<p><a href="" target="_blank"><img src="Settings.png"/></a></p>
+</body>
+</html>

@@ -136,7 +136,8 @@ function delayedSetPass(chainname) {
 function displayError(error) {
   console.log('exec error: ' + error);
   alert('Sorry, there has been an error starting multichaind.\n\nDetails: '+error);
-  window.close();   
+  if (window)
+    window.close();   
 }
 
 function getPass(chainname) {

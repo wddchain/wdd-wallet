@@ -10,10 +10,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 #Move files to /usr/bin
 mv multichain/multichaind multichain/multichain-cli multichain/multichain-util /usr/local/bin
-echo 'cd ${SCRIPTPATH}' > ${SCRIPTPATH}/WDDWallet
-echo './Wallet &' >> ${SCRIPTPATH}/WDDWallet
-chmod +x "${SCRIPTPATH}/WDDWallet"
-ln -s "${SCRIPTPATH}/WDDWallet" /usr/local/bin/WDDWallet 
+ln -s "${SCRIPTPATH}/Wallet" /usr/local/bin/wdd-wallet 
 
 
 while true; do

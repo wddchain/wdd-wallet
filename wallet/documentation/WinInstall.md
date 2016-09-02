@@ -9,7 +9,7 @@ The last page of the installer will offer to run Wallet.exe.  Keep the box check
 
 The first time it runs, it will take some time to initialize.  Please be patient.  
 
-When it prompts to seed the chain, accept the default location.  The wallet will automatically assign you an address.  This is like your account number.  You receive and send using your address.
+When it prompts to seed the chain, accept the default location.  The wallet will automatically assign you a unique address.  This is like your account number.  You receive and send using your address.
 
 When you see your address and your QR code, you are ready to accept WDD and Vouchers.
 

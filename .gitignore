@@ -5,6 +5,11 @@ wallet/output
 wallet/vbox_setup/VirtualBoxSetup.exe
 wallet/multichain_appliance/wddwallet.ova
 
+#These should come from latest multichain
+wallet/multichain/multichaind
+wallet/multichain/multichain-cli
+wallet/multichain/multichain-util
+
 package.nw
 
 # Logs

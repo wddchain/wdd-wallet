@@ -13,13 +13,11 @@ When it prompts to seed the chain, accept the default location.  The wallet will
 
 When you see your address and your QR code, you are ready to accept WDD and Vouchers.
 
-###Verifying integrity of your installer
+###Verifying integrity of your Windows install download
 Because of the value of crypto, some attempts have been seen to trick people into installing compromised software.  We are not aware of any attempts to do so with this wallet, howevver, we provide an MD5 and SHA256 checksum that lets you verify the installer.  Obtain the checksums from http://<domain>/wdd/checksums.txt
 
 Use these commands in a command prompt (on Windows) to verify the checksum.  Verifying one is enough.
 Replace <file> with the filename of your download.  
 ```certutil -hashfile <file> md5```  
 ```certutil -hashfile <file> sha256```
-
-
 

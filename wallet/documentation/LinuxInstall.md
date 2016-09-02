@@ -20,7 +20,7 @@ When you see your address and your QR code, you are ready to accept WDD and Vouc
 To run the wallet later:  
 ```wdd-wallet```
 
-###Verifying integrity of your installer
+###Verifying integrity of your linux download
 Because of the value of crypto, some attempts have been seen to trick people into installing compromised software.  We are not aware of any attempts to do so with this wallet, howevver, we provide an MD5 and SHA256 checksum that lets you verify the installer.  Obtain the checksums from 
 http://64.19.211.41/wdd/checksums_linux.txt
 

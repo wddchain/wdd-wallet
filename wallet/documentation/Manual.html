@@ -7,8 +7,10 @@
 <body>
 <p><a name="TOC"></p>
 <h3>WDD Wallet</h3>
-<p><a href="#WinInstall">Windows Install</a><br>
-<a href="#WinBackup">Back up your Wallet</a><br>
+<p><a href="#WinInstall">Windows Install</a> <br>
+<a href="#LinuxInstal">Linux Install</a> <br>
+<a href="#WinBackup">Back up your Wallet (Windows)</a>  <br>
+<a href="#LinuxBackup">Back up your Wallet (Linux)</a>  <br>
 <a href="#Receiving">Receiving Vouchers or WDD</a><br>
 <a href="#SendWDD">Sending WDD</a><br>
 <a href="#SendVoucher">Sending a Voucher</a><br>
@@ -21,27 +23,54 @@ Launch WddWalletSetup.exe, and follow the prompts. </p>
 <p>Note: As part of the wallet installation it will install VirtualBox.  Accept all the defaults, but when you are offered the option to run VirtualBox at the end of the installation, uncheck the box. </p>
 <p>The last page of the installer will offer to run Wallet.exe.  Keep the box checked and it will start the wallet automatically.</p>
 <p>The first time it runs, it will take some time to initialize.  Please be patient.  </p>
-<p>When it prompts to seed the chain, accept the default location.  The wallet will automatically assign you an address.  This is like your account number.  You receive and send using your address.</p>
+<p>When it prompts to seed the chain, accept the default location.  The wallet will automatically assign you a unique address.  This is like your account number.  You receive and send using your address.</p>
 <p>When you see your address and your QR code, you are ready to accept WDD and Vouchers.</p>
-<h3>Verifying integrity of your installer</h3>
+<h3>Verifying integrity of your Windows install download</h3>
 <p>Because of the value of crypto, some attempts have been seen to trick people into installing compromised software.  We are not aware of any attempts to do so with this wallet, howevver, we provide an MD5 and SHA256 checksum that lets you verify the installer.  Obtain the checksums from http://<domain>/wdd/checksums.txt</p>
 <p>Use these commands in a command prompt (on Windows) to verify the checksum.  Verifying one is enough.
 Replace <file> with the filename of your download.<br>
 <code>certutil -hashfile &lt;file&gt; md5</code><br>
 <code>certutil -hashfile &lt;file&gt; sha256</code></p>
-<p><a name="WinBackup"></p>
+<p><a name="LinuxInstall"></p>
+<h3>Linux Installation of WDD Wallet</h3>
+<p>Download the installer from<br>
+<a href="http://64.19.211.41/wdd-wallet-linux-x64.tar.gz">http://64.19.211.41/wdd/wdd-wallet-linux-x64.tar.gz</a> for 64-bit<br>
+<a href="http://64.19.211.41/wdd-wallet-linux-ia32.tar.gz">http://64.19.211.41/wdd/wdd-wallet-linux-ia32.tar.gz</a> for 32-bit  </p>
+<p>Extract with:
+<code>tar -xzvf &lt;file&gt;</code>  </p>
+<p>From the newly created wddwallet folder, run:<br>
+<code>sudo sh install.sh</code><br>
+You may be prompted for your password, and at the end of the install you will be asked if you want to run the wallet.</p>
+<p>The first time the wallet runs, it will take some time to initialize.  Please be patient.  </p>
+<p>When it prompts to seed the chain, accept the default location.  The wallet will automatically assign you a unique address.  This is like your account number.  You receive and send using your address.</p>
+<p>When you see your address and your QR code, you are ready to accept WDD and Vouchers.</p>
+<p>To run the wallet later:<br>
+<code>wdd-wallet</code></p>
+<h3>Verifying integrity of your linux download</h3>
+<p>Because of the value of crypto, some attempts have been seen to trick people into installing compromised software.  We are not aware of any attempts to do so with this wallet, howevver, we provide an MD5 and SHA256 checksum that lets you verify the installer.  Obtain the checksums from 
+http://64.19.211.41/wdd/checksums_linux.txt</p>
+<p>Use these commands in a command prompt (on Windows) to verify the checksum.  Verifying one is enough.
+Replace <code>&lt;file&gt;</code> with the filename of your download.<br>
+<code>md5sum &lt;file&gt;</code><br>
+<code>sha256sum &lt;file&gt;</code>
+<a name="WinBackup"></p>
 <h3>Backup your wallet</h3>
 <p>Back up this folder*:<br>
 <code>C:\Users\&lt;your user&gt;\Virtual Box VMs\wddwallet</code></p>
 <p>This folder can be large.  It is recommended to save to an external HD, large thumbdrive, or DVD.  </p>
+<p><small>*It is important to keep your backup in a secure location.</small></p>
+<p><a name="LinuxBackup"></p>
+<h3>Backup your wallet</h3>
+<p>Back up this file*:<br>
+<code>~/.multichain/wdd/wallet.dat</code></p>
 <p><small>*It is important to keep your backup in a secure location.</small></p>
 <p><a name="Receiving"></p>
 <h3>Receiving Vouchers or WDD</h3>
 <p>For others to send WDD or Assets to you, they will need your address.  </p>
 <p><a href="" target="_blank"><img src="Receiving.png"/></a></p>
 <p>You can give them the address text string which looks like this: <br>
-<code>wUCS7Qy9YzoQt1Np4XEqHVDhMGnpCSECEcWKtd</code> <br>
-Or let them scan the QR Code with their phone.  </p>
+<code>wUCS7Qy9YzoQt1Np4XEqHVDhMGnpCSECEcWKtd</code><br>
+Or let the recipient scan the QR Code with their phone.  </p>
 <p>You can copy/paste the address or qr code from the application to an e-mail.  </p>
 <p><a name="SendWDD"></p>
 <h3>Sending WDD</h3>

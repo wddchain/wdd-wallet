@@ -2,7 +2,7 @@
 
 #Builds a single file markdown file for export to other formats.  Use ReText app to export to html, pdf, or odt.
 
-cat WinInstall.md WinBackup.md Receiving.md SendWDD.md SendVoucher.md History.md Settings.md > Manual_for_PDF_and_ODT_export.md
+cat WinInstall.md LinuxInstall.md WinBackup.md LinuxBackup.md Receiving.md SendWDD.md SendVoucher.md History.md Settings.md > Manual_for_PDF_and_ODT_export.md
 
 #Convert to a single file with hotlinked Table of Contents for html export
 sed -r "s/([a-zA-Z]*)\.md/#\1/g" README.md > Manual.md

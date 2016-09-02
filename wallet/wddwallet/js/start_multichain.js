@@ -113,7 +113,10 @@ function startMultichain(multichainCommand, seed) {
 
 function seedMultichain() {
   console.log('Seeding chain');
-  multichainCommand = 'multichain-1.0-alpha-23/multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed;
+  if (isWin)
+    multichainCommand = 'multichain-1.0-alpha-23/multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed;
+  else
+    multichainCommand = 'multichaind ' + wallet_settings.chainname + '@' + wallet_settings.multichain.seed;
   console.log("Command: " + multichainCommand);
   startMultichain(multichainCommand, true);  //Start again, with seed set to true
 }

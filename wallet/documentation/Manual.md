@@ -39,8 +39,8 @@ Replace <file> with the filename of your download.
 <a name="LinuxInstall">
 ###Linux Installation of WDD Wallet
 Download the installer from  
-[http://64.19.211.41/wdd/wdd-wallet-linux-x64.tar.gz](http://64.19.211.41/wdd-wallet-linux-x64.tar.gz) for 64-bit  
-[http://64.19.211.41/wdd/wdd-wallet-linux-ia32.tar.gz](http://64.19.211.41/wdd-wallet-linux-ia32.tar.gz) for 32-bit  
+[http://64.19.211.41/wdd/wdd-wallet-linux-x64.tar.gz](http://64.19.211.41/wdd/wdd-wallet-linux-x64.tar.gz) for 64-bit  
+[http://64.19.211.41/wdd/wdd-wallet-linux-ia32.tar.gz](http://64.19.211.41/wdd/wdd-wallet-linux-ia32.tar.gz) for 32-bit  
 
 Extract with:
 ```tar -xzvf <file>```  

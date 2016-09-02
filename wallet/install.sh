@@ -16,7 +16,7 @@ ln -s "${SCRIPTPATH}/Wallet" /usr/local/bin/wdd-wallet
 while true; do
 read -p "Run wallet now? (Y/N)" yn
   case $yn in
-    [Yy]* ) WDDWallet; break;;
+    [Yy]* ) wdd-wallet; break;;
     [Nn]* ) exit;;
     * ) echo "Please answer yes or no.";;
   esac

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+PROG=wdd-wallet
+VER=0.9
+
+npm install nwjs-builder -g
+#!/bin/sh
+
+#Incomplete
+
+cd wddwallet
+nwb nwbuild -p linux64 -o ../output
+cd ..
+
+DEBPATH="output/${PROG}/${PROG}_${VER}/DEBIAN"
+mkdir -p $DEBPATH
+echo "Package: wdd-wallet" > "${DEBPATH}/control"
+echo "Architecture: all" >> "${DEBPATH}/control"
+echo "Maintainer: ANX Technologies" >> "${DEBPATH}/control"
+echo "Depends: debconf (>= 0.5.00)" >> "${DEBPATH}/control"
+echo "Priority: optional" >> "${DEBPATH}/control"
+echo "Version: ${VER}" >> "${DEBPATH}/control"
+echo "Description: WDD Wallet" >> "${DEBPATH}/control"
+echo "  Send WDD and Vouchers" >> "${DEBPATH}/control"
+
+#echo "" > "${DEBPATH}/conffiles"
+
+#Make owner root so our uid is not set
+#sudo chown -R root:root "output/${PROG}/"
+
+dpkg-deb --build "output/${PROG}/${PROG}_${VER}"

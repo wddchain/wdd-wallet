@@ -63,6 +63,11 @@ win.on('close', function()
     win.close(true);
   }
 
+  StopWalletVM();
+});
+
+function StopWalletVM() 
+{
   if (wallet_settings.vmname != '')   //If using vm, then stop it
   {
     var stopVM = '\"' + wallet_settings.vmctrl + '\"' + ' controlvm '+ wallet_settings.vmname + ' savestate';
@@ -74,4 +79,5 @@ win.on('close', function()
       console.log('error: ' + error);
     });
   } 
-});
+
+}

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+#Create 32-bit and 64-bit versions
+cd wddwallet
+nwb nwbuild -p osx64 -o ../output
+cd ..
+
+genisoimage -V wddwallet -D -R -apple -no-pad -o output/wddwallet.dmg output/Wallet-osx-x64
+
+# #Create an distribution file with multichain for 32 bit
+# rm -rf output/wddwallet
+# mkdir -p output/wddwallet
+# cp install.sh output/wddwallet
+# cp -r multichain output/wddwallet 
+# cp -r output/Wallet-linux-ia32/* output/wddwallet
+# tar -czvf output/wdd-wallet-linux-ia32.tar.gz -C output/ wddwallet
+
+
+# #Create an distribution file with multichain for 64 bit
+# rm -rf output/wddwallet
+# mkdir -p output/wddwallet
+# cp install.sh output/wddwallet
+# cp -r multichain output/wddwallet 
+# cp -r output/Wallet-linux-ia32/* output/wddwallet 
+# tar -czvf output/wdd-wallet-linux-x64.tar.gz -C output/ wddwallet
+
+# #Create a checksum file for linux distributions
+# cd output
+# echo -n 'md5 ' > checksum_linux.txt
+# echo `md5sum wdd-wallet-linux-ia32.tar.gz` >> checksum_linux.txt
+# echo -n 'sha256 ' >> checksum_linux.txt
+# echo `sha256sum wdd-wallet-linux-ia32.tar.gz` >> checksum_linux.txt
+
+# echo -n 'md5 ' >> checksum_linux.txt
+# echo `md5sum wdd-wallet-linux-x64.tar.gz` >> checksum_linux.txt
+# echo -n 'sha256 ' >> checksum_linux.txt
+# echo `sha256sum wdd-wallet-linux-x64.tar.gz` >> checksum_linux.txt
+
+# cat checksum_linux.txt
+# cd ..

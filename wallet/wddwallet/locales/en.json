@@ -39,5 +39,11 @@
 	"Want to send currency to someone? Fill in the form below.": "Want to send currency to someone? Fill in the form below.",
 	"Date time": "Date time",
 	"Address": "Address",
-	"Qty": "Qty"
+	"Qty": "Qty",
+	"Backup Wallet": "Backup Wallet",
+	"Backup": "Backup",
+	"Choose a folder on your backup media.": "Choose a folder on your backup media.",
+	"Please make regular backups and keep them secure.": "Please make regular backups and keep them secure.",
+	"Please make regular backups and keep them secure.  Use a thumbdrive with lots of room.": "Please make regular backups and keep them secure.  Use a thumbdrive with lots of room.",
+	"Use a thumbdrive with lots of room.": "Use a thumbdrive with lots of room."
 }

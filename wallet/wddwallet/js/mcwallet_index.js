@@ -82,6 +82,11 @@ $('#qr_code_reader_button').click(function()
 	window.location = 'qr_code_reader.html';
 });
 
+$('#backup_wallet_button').click(function() 
+{
+	window.location = 'backup_wallet.html';
+});
+
 
 $('#qr_code_reader_asset_button').click(function() 
 {

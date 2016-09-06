@@ -25,9 +25,15 @@ function chooseFile(name) {
     if (okcancel === true) {
 
     	if (isWin) {
+    		$('#backup_status').html('Stopping VM.');
+    		alert('Stopping VM.');
 	    	StopWalletVM();
+    		$('#backup_status').html('Stopped VM.');
+    		alert('Stopped VM.');
 
+    		alert('Starting copy of ' + this.value + '\\' + filename);
 	    	BackupVBoxDrive(uuid_of_virtualbox_home, this.value + '\\' + filename);
+	    	alert('Stopping copy');
 
 	    	//Restart VM
 	    	window.location = 'start_multichain.html';  
@@ -48,8 +54,6 @@ function chooseFile(name) {
   chooser.click();  
 }
 
-chooseFile('#fileDialog');
-
 function BackupVBoxDrive(uuid, fullpath) {
   if (wallet_settings.vmname != '')   //If using vm, then stop it
   {
@@ -58,9 +62,9 @@ function BackupVBoxDrive(uuid, fullpath) {
     var exec = require('child_process').exec;
     var child;
     child = exec(backupVM, function (error, stdout, stderr) {
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
-      console.log('error: ' + error);
+      alert('stdout: ' + stdout);
+      alert('stderr: ' + stderr);
+      alert('error: ' + error);
     });
   } 
 }
@@ -92,3 +96,5 @@ function copyFile(source, target, cb) {
 function getUserHome() {
   return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
+
+chooseFile('#fileDialog');

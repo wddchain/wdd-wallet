@@ -1,5 +1,5 @@
 {
-  "WDD Wallet": "世界之钻的宝箱",
+	"WDD Wallet": "世界之钻的宝箱",
 	"Voucher: ": "提货券: ",
 	"send": "发送",
 	"Send to: ": "发送到: ",
@@ -29,11 +29,19 @@
 	"Cancel": "取消",
 	"Starting up...": "启动中",
 	"This shouldn't take too long...": "这不需要等太久…",
-	"Want to send currency to someone? Fill in the form below.": "想要给某人发送货币? 请填写下面的表格", 
+	"Want to send currency to someone? Fill in the form below.": "想要给某人发送货币? 请填写下面的表格",
 	"Date time": "日期/时间",
 	"Address": "地址",
 	"Qty": "数量",
 	"Language": "语言",
 	"Chinese": "中文",
-	"English": "英文"
+	"English": "英文",
+	"Please make regular backups and keep them secure.": "Please make regular backups and keep them secure.",
+	"Use a thumbdrive with lots of room.": "Use a thumbdrive with lots of room.",
+	"Backup Wallet": "Backup Wallet",
+	"Backup Word List": "Backup Word List",
+	"Backup": "Backup",
+	"Write down the list of twelve words to back up your wallet.": "Write down the list of twelve words to back up your wallet.",
+	"Show Word List": "Show Word List",
+	"Restore Wallet from Word List": "Restore Wallet from Word List"
 }

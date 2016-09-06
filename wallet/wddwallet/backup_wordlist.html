@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title translate>Wallet</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mcwallet.css" rel="stylesheet">
+  </head>
+  <body>
+	
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-brand navbar-left">
+				<img id="wallet_logo" src="images/wallet_logo.png"/> 
+         <span translate>WDD Wallet</span>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container" style="text-align: left;">
+    <label translate>Backup Wallet</label>
+    <p translate>Write down this list of 24 words to back up your wallet.</p>
+    <strong>
+    <p id="backup_words"></p>
+    </strong>
+    <p style="margin-top: 30px;">
+      <button class="btn btn-default" id="show_wordlist_button" translate>Show Word List</button>
+    </p>
+
+
+    <p style="margin-top: 30px;">
+      <button class="btn btn-default" id="restore_wordlist_button" translate>Restore Wallet from Word List</button>
+    </p>
+
+    <p style="margin-top: 30px;">
+      <button class="btn btn-default" id="wordlist_cancel_button" translate>Cancel</button>
+    </p>
+	</div>
+	
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mcwallet_global.js"></script>
+    <script src="js/backup_wordlist.js"></script>
+  </body>
+</html>

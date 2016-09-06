@@ -87,6 +87,10 @@ $('#backup_wallet_button').click(function()
 	window.location = 'backup_wallet.html';
 });
 
+$('#backup_words_button').click(function() 
+{
+	window.location = 'backup_wordlist.html';
+});
 
 $('#qr_code_reader_asset_button').click(function() 
 {

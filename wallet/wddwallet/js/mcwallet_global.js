@@ -63,21 +63,21 @@ win.on('close', function()
     win.close(true);
   }
 
-  StopWalletVM();
-});
-
-function StopWalletVM() 
-{
-  if (wallet_settings.vmname != '')   //If using vm, then stop it
-  {
-    var stopVM = '\"' + wallet_settings.vmctrl + '\"' + ' controlvm '+ wallet_settings.vmname + ' savestate';
-    var exec = require('child_process').exec;
-    var child;
-    child = exec(stopVM, function (error, stdout, stderr) {
+  StopWalletVM(function (error, stdout, stderr) {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
       console.log('error: ' + error);
     });
+});
+
+function StopWalletVM(cb) 
+{
+  if (global.wallet_settings.vmname != '')   //If using vm, then stop it
+  {
+    var stopVM = '\"' + global.wallet_settings.vmctrl + '\"' + ' controlvm '+ global.wallet_settings.vmname + ' savestate';
+    var exec = require('child_process').exec;
+    var child;
+    child = exec(stopVM, cb);  //Callback (error, stdout, stderr)
   } 
 
 }

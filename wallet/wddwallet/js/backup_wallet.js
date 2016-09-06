@@ -17,26 +17,38 @@ $('#backup_cancel_button').click(function()
 
 
 function chooseFile(name) {
+  var path_info = {};	
   var chooser = document.querySelector(name);
   chooser.addEventListener("change", function(evt) {
-  	var okcancel = confirm("Back up to " + this.value);
+  	path_info.backup_dir = this.value;
+  	var okcancel = confirm("Back up to " + path_info.backup_dir);
   	console.log(okcancel);
-    console.log(this.value);
+    console.log(path_info.backup_dir);
     if (okcancel === true) {
 
     	if (isWin) {
     		$('#backup_status').html('Stopping VM.');
-    		alert('Stopping VM.');
-	    	StopWalletVM();
-    		$('#backup_status').html('Stopped VM.');
-    		alert('Stopped VM.');
-
-    		alert('Starting copy of ' + this.value + '\\' + filename);
-	    	BackupVBoxDrive(uuid_of_virtualbox_home, this.value + '\\' + filename);
-	    	alert('Stopping copy');
-
-	    	//Restart VM
-	    	window.location = 'start_multichain.html';  
+	    	StopWalletVM(function (error, stdout, stderr) {
+				console.log('stdout: ' + stdout);
+				console.log('stderr: ' + stderr);
+				console.log('error: ' + error);
+				
+				$('#backup_status').html('Stopped VM.');
+				$('#backup_status').html('Starting copy of ' + path_info.backup_dir + '\\' + filename);
+				BackupVBoxDrive(uuid_of_virtualbox_home, path_info.backup_dir + '\\' + filename, function (error, stdout, stderr) {
+					console.log('BVD stdout: ' + stdout);
+					console.log('BVD stderr: ' + stderr);
+					console.log('BVD error: ' + error);
+					if (error) {
+						alert(error);
+					}
+					else {
+						$('#backup_status').html('Backup complete');
+						//Restart VM
+						window.location = 'start_multichain.html';  
+					}
+				});
+			});
 	    } 
 	    else 
 	    {
@@ -54,18 +66,14 @@ function chooseFile(name) {
   chooser.click();  
 }
 
-function BackupVBoxDrive(uuid, fullpath) {
-  if (wallet_settings.vmname != '')   //If using vm, then stop it
+function BackupVBoxDrive(uuid, fullpath, cb) {
+  if (global.wallet_settings.vmname != '')   //If using vm, then stop it
   {
   	//Uses VBoxManage to clone the hd to the selected folder
-    var backupVM = '\"' + wallet_settings.vmctrl + '\"' + ' clonemedium '+ uuid + ' \"' + fullpath + '\"';
+    var backupVM = '\"' + global.wallet_settings.vmctrl + '\"' + ' clonemedium '+ uuid + ' \"' + fullpath + '\"';
     var exec = require('child_process').exec;
     var child;
-    child = exec(backupVM, function (error, stdout, stderr) {
-      alert('stdout: ' + stdout);
-      alert('stderr: ' + stderr);
-      alert('error: ' + error);
-    });
+    child = exec(backupVM, cb);  //Callback (error, stdout, stderr)
   } 
 }
 

@@ -58,5 +58,8 @@
 	"Wallet restored.": "Wallet restored.",
 	"Enter your 24 words.": "Enter your 24 words.",
 	"You already have an address.  Continue?": "You already have an address.  Continue?",
-	"Warning: You already have an address.  Continue?": "Warning: You already have an address.  Continue?"
+	"Warning: You already have an address.  Continue?": "Warning: You already have an address.  Continue?",
+	"Backup and Restore": "Backup and Restore",
+	"Warning: Backup will only work with one address.  More than one address found.": "Warning: Backup will only work with one address.  More than one address found.",
+	"Write down this list of 24 words to backup your wallet.": "Write down this list of 24 words to backup your wallet."
 }

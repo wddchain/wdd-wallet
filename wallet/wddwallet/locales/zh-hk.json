@@ -1,5 +1,5 @@
 {
-	"WDD Wallet": "“世界之鑽的寶箱”",
+	"WDD Wallet": "世界之鑽的寶箱",
 	"Voucher: ": "提貨券: ",
 	"send": "發送",
 	"Send to: ": "發送到: ",
@@ -27,6 +27,8 @@
 	"Choose": "選擇",
 	"Show the QR code of an address below.": "請在下方展示地址的二維碼.",
 	"Cancel": "取消",
+	"Backup Wallet": "备份钱包",
+	"Backup": "備份",		
 	"Starting up...": "啟動中",
 	"This shouldn't take too long...": "這不需要等太久…",
 	"Want to send currency to someone? Fill in the form below.": "想要給某人發送貨幣? 請填寫下面的表格",

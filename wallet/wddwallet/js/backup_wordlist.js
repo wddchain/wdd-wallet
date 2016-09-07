@@ -25,10 +25,10 @@ $('#show_wordlist_button').click(function()
     else 
     {
       if (data.address_count > 1)
-        alert(i18n.___('Warning: Backup will only work with one address.  More than one address found.'));
+        alert(i18n.__('Warning: Backup will only work with one address.  More than one address found.'));
 
       if (data.address_count == 0)
-        alert(i18n.___('Warning: No address found.'));
+        alert(i18n.__('Warning: No address found.'));
 
       var wordlist = privateKeyConvertToMnemonic(data.key, data.chainparams['private-key-version'], data.chainparams['address-checksum-value'])
       $('#backup_words').html(wordlist);
@@ -104,7 +104,7 @@ function getPrivateKey(cb) {
     }
     else
     {
-      alert('Address not found.');
+      alert(i18n.__('Address not found.'));
     }
   });
 }

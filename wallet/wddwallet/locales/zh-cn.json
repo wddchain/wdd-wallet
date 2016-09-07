@@ -38,10 +38,17 @@
 	"English": "英文",
 	"Please make regular backups and keep them secure.": "Please make regular backups and keep them secure.",
 	"Use a thumbdrive with lots of room.": "Use a thumbdrive with lots of room.",
-	"Backup Wallet": "Backup Wallet",
+	"Backup Wallet": "备份钱包",
 	"Backup Word List": "Backup Word List",
-	"Backup": "Backup",
+	"Backup": "备份",
 	"Write down the list of twelve words to back up your wallet.": "Write down the list of twelve words to back up your wallet.",
 	"Show Word List": "Show Word List",
-	"Restore Wallet from Word List": "Restore Wallet from Word List"
+	"Restore Wallet from Word List": "Restore Wallet from Word List",
+	"Backup and Restore": "Backup and Restore",
+	"Write down this list of 24 words to back up your wallet.": "Write down this list of 24 words to back up your wallet.",
+	"Warning: Backup will only work with one address.  More than one address found.": "Warning: Backup will only work with one address.  More than one address found.",
+	"Write down this list of 24 words to backup your wallet.": "Write down this list of 24 words to backup your wallet.",
+	"Warning: You already have an address.  Continue?": "Warning: You already have an address.  Continue?",
+	"Enter your 24 words.": "Enter your 24 words.",
+	"Wallet restored.": "Wallet restored."
 }

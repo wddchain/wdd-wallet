@@ -3,13 +3,13 @@
 
 [Windows Install](#WinInstall)   
 [Linux Install](#LinuxInstal)   
-[Back up your Wallet (Windows)](#WinBackup)    
-[Back up your Wallet (Linux)](#LinuxBackup)    
+[Backup your Wallet](#Backup)    
 [Receiving Vouchers or WDD](#Receiving)  
 [Sending WDD](#SendWDD)  
 [Sending a Voucher](#SendVoucher)  
 [Transaction History](#History)  
 [Settings](#Settings)  
+
 
 
 
@@ -66,22 +66,6 @@ Use these commands in a command prompt (on Windows) to verify the checksum.  Ver
 Replace ```<file>``` with the filename of your download.  
 ```md5sum <file>```  
 ```sha256sum <file>```
-<a name="WinBackup">
-###Backup your wallet
-Back up this folder*:  
-```C:\Users\<your user>\Virtual Box VMs\wddwallet```
-
-This folder can be large.  It is recommended to save to an external HD, large thumbdrive, or DVD.  
-
-<small>*It is important to keep your backup in a secure location.</small>
-
-<a name="LinuxBackup">
-###Backup your wallet
-Back up this file*:  
-```~/.multichain/wdd/wallet.dat```
-
-<small>*It is important to keep your backup in a secure location.</small>
-
 <a name="Receiving">
 ###Receiving Vouchers or WDD
 For others to send WDD or Assets to you, they will need your address.  
@@ -133,4 +117,15 @@ View the transaction history of your account.
 Select your preferred language.
 
 <a href="" target="_blank"><img src="Settings.png"/></a>
+
+<a name="Backup">
+###Backup your wallet
+Go to the Setting tab.  
+Hit the 'Backup and Restore' button.  
+Hit the 'Show Words' button to show the 24 words.  
+Write the words down, and save the paper.*  
+
+<a href="" target="_blank"><img src="Backup.png"/></a>
+
+<small>*It is important to keep your backup in a secure location.</small>
 

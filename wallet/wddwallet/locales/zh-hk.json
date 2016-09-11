@@ -37,5 +37,22 @@
 	"English": "英文",
 	"Date time": "日期/時間",
 	"Address": "地址",
-	"Qty": "數量"
+	"Qty": "數量",
+	"Please make regular backups and keep them secure.": "Please make regular backups and keep them secure.",
+	"Use a thumbdrive with lots of room.": "Use a thumbdrive with lots of room.",
+	"Backup Wallet": "备份钱包",
+	"Backup": "备份",
+	"Show Word List": "顯示單詞表",
+	"Restore Wallet from Word List": "從單詞表還原錢包",
+	"Backup and Restore": "備份和還原",
+	"Write down this list of 24 words to back up your wallet.": "写下含24个字的单词表来备份你的钱包。",
+	"Warning: Backup will only work with one address.  More than one address found.": "警告：備份只適用於一個地址。系統找到多個地址。",
+	"Write down this list of 24 words to backup your wallet.": "寫下含24個字的單詞表來備份你的錢包。",
+	"Warning: You already have an address.  Continue?": "警告：你已經有一個地址。 繼續？",
+	"Warning: No address found.":"警告：未找到地址。",
+	"Enter your 24 words.": "輸入你的24個字。",
+	"Words are not valid.  Please check the words and try again.": "單詞無效。請檢查並重試。",
+	"Not enough words.": "單詞不足。",
+	"Address not found.": "未找到地址。",
+	"Wallet restored.": "錢包已還原。"
 }

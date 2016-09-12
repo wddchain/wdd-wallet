@@ -9,7 +9,9 @@ Extract with:
 
 From the newly created wddwallet folder, run:  
 ```sudo sh install.sh```  
-You may be prompted for your password, and at the end of the install you will be asked if you want to run the wallet.
+You may be prompted for your password, and at the end of the install you will be asked if you want to run the wallet.  Choose Yes.
+
+To run the wallet at another time, just run 'Wallet'
 
 The first time the wallet runs, it will take some time to initialize.  Please be patient.  
 

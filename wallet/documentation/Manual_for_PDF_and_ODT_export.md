@@ -32,7 +32,9 @@ Extract with:
 
 From the newly created wddwallet folder, run:  
 ```sudo sh install.sh```  
-You may be prompted for your password, and at the end of the install you will be asked if you want to run the wallet.
+You may be prompted for your password, and at the end of the install you will be asked if you want to run the wallet.  Choose Yes.
+
+To run the wallet at another time, just run 'Wallet'
 
 The first time the wallet runs, it will take some time to initialize.  Please be patient.  
 
@@ -105,7 +107,7 @@ Select your preferred language.
 
 <a name="Backup">
 ###Backup your wallet
-Go to the Setting tab.  
+Go to the 'Settings' tab.  
 Hit the 'Backup and Restore' button.  
 Hit the 'Show Words' button to show the 24 words.  
 Write the words down, and save the paper.*  

@@ -9,6 +9,7 @@ wallet/multichain_appliance/wddwallet.ova
 wallet/multichain/multichaind
 wallet/multichain/multichain-cli
 wallet/multichain/multichain-util
+wallet/multichain/README.txt
 
 package.nw
 

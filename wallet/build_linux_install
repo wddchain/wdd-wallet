@@ -5,6 +5,10 @@ cd wddwallet
 nwb nwbuild -p linux32,linux64 -o ../output
 cd ..
 
+#Get newest multichain
+wget -O=output/multichain.tar.gz http://www.multichain.com/download/multichain-1.0-alpha-23.tar.gz
+tar -xvzf --strip-components=1 output/multichain.tar.gz
+
 #Create an distribution file with multichain for 32 bit
 rm -rf output/wddwallet
 mkdir -p output/wddwallet

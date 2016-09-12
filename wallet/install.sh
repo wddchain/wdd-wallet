@@ -1,7 +1,9 @@
 #!/bin/sh
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as sudo or root"
+ROOTUID="0"
+
+if [ "$(id -u)" -ne $ROOTUID ] ; then
+  echo "Please run as sudo or root"
   exit
 fi
 

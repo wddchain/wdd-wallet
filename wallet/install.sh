@@ -11,15 +11,7 @@ SCRIPT=$(readlink -f $0)
 SCRIPTPATH=`dirname $SCRIPT`
 
 #Move files to /usr/bin
-mv multichain/multichaind multichain/multichain-cli multichain/multichain-util /usr/local/bin
-ln -s "${SCRIPTPATH}/Wallet" /usr/local/bin/wdd-wallet 
+cp multichain/multichaind multichain/multichain-cli multichain/multichain-util /usr/local/bin
+ln -sf "${SCRIPTPATH}/Wallet" /usr/local/bin/wdd-wallet 
 
-
-while true; do
-read -p "Run wallet now? (Y/N)" yn
-  case $yn in
-    [Yy]* ) wdd-wallet; break;;
-    [Nn]* ) exit;;
-    * ) echo "Please answer yes or no.";;
-  esac
-done 
+echo 'Run wdd-wallet'

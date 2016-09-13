@@ -2,20 +2,12 @@
 
 #Create 32-bit and 64-bit versions
 cd wddwallet
-nwb nwbuild -p linux32,linux64 -o ../output
+nwb nwbuild -p linux64 -o ../output
 cd ..
 
 #Get newest multichain
-wget -O=output/multichain.tar.gz http://www.multichain.com/download/multichain-1.0-alpha-23.tar.gz
-tar -xvzf --strip-components=1 output/multichain.tar.gz
-
-#Create an distribution file with multichain for 32 bit
-rm -rf output/wddwallet
-mkdir -p output/wddwallet
-cp install.sh output/wddwallet
-cp -r multichain output/wddwallet 
-cp -r output/Wallet-linux-ia32/* output/wddwallet
-tar -czvf output/wdd-wallet-linux-ia32.tar.gz -C output/ wddwallet
+wget -O output/multichain.tar.gz http://www.multichain.com/download/multichain-1.0-alpha-23.tar.gz
+tar --one-top-level=multichain --strip-components=1 -xvzf output/multichain.tar.gz
 
 
 #Create an distribution file with multichain for 64 bit
@@ -23,17 +15,13 @@ rm -rf output/wddwallet
 mkdir -p output/wddwallet
 cp install.sh output/wddwallet
 cp -r multichain output/wddwallet 
-cp -r output/Wallet-linux-ia32/* output/wddwallet 
+cp -r output/Wallet-linux-x64/* output/wddwallet 
 tar -czvf output/wdd-wallet-linux-x64.tar.gz -C output/ wddwallet
 
-#Create a checksum file for linux distributions
+#Create a checksum file for linux distribution
 cd output
-echo -n 'md5 ' > checksum_linux.txt
-echo `md5sum wdd-wallet-linux-ia32.tar.gz` >> checksum_linux.txt
-echo -n 'sha256 ' >> checksum_linux.txt
-echo `sha256sum wdd-wallet-linux-ia32.tar.gz` >> checksum_linux.txt
 
-echo -n 'md5 ' >> checksum_linux.txt
+echo -n 'md5 ' > checksum_linux.txt
 echo `md5sum wdd-wallet-linux-x64.tar.gz` >> checksum_linux.txt
 echo -n 'sha256 ' >> checksum_linux.txt
 echo `sha256sum wdd-wallet-linux-x64.tar.gz` >> checksum_linux.txt

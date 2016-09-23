@@ -63,11 +63,7 @@ win.on('close', function()
     win.close(true);
   }
 
-  StopWalletVM(function (error, stdout, stderr) {
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
-      console.log('error: ' + error);
-    });
+  setTimeout(function(){ StopWalletVM(function (error, stdout, stderr) { console.log('stdout: ' + stdout); console.log('stderr: ' + stderr); console.log('error: ' + error); }); }, 1000 * 5);   
 });
 
 function StopWalletVM(cb) 
@@ -78,6 +74,7 @@ function StopWalletVM(cb)
     var exec = require('child_process').exec;
     var child;
     child = exec(stopVM, cb);  //Callback (error, stdout, stderr)
-  } 
-
+  } else {
+    cb();
+  }
 }

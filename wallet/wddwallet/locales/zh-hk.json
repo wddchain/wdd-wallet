@@ -54,5 +54,15 @@
 	"Words are not valid.  Please check the words and try again.": "單詞無效。請檢查並重試。",
 	"Not enough words.": "單詞不足。",
 	"Address not found.": "未找到地址。",
-	"Wallet restored.": "錢包已還原。"
+	"Wallet restored.": "錢包已還原。",
+	"Status:": "系統狀態:", 
+	"Status": "系統狀態",
+	"Update": "狀態更新",
+	"You can't send negative amounts.": "你不能發送數量為負數的幣。",
+	"You don't have enough.": "你的幣數量不足。",
+	"You can't send zero.": "你不能發送0個幣。",
+	"Version": "版本",
+	"Blocks": "區塊",
+	"Connections": "已連接電腦數量",
+	"Errors": "已發生的錯誤"
 }

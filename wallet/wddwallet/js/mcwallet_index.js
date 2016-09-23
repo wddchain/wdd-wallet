@@ -12,6 +12,7 @@ var mainAddress;
 var qrcode = new QRCode('main_address_qrcode');
 var sendingStatus;
 var transactionTable;
+var statusInfo;
 
 var fs = require('fs');
 wallet_settings = JSON.parse(fs.readFileSync('./wallet_settings.json').toString());
@@ -37,6 +38,7 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 sendCommand('get_main_address');
+loopUpdateStatus();
 loopUpdateBalance();
 loopUpdateFiatValue();
 loopUpdateTransactions();
@@ -64,6 +66,11 @@ $('#language_setting').change(function()
   i18n.setLocale(lang);
   console.log('Language set to ' + lang);
   window.location='index.html';
+});
+
+$('#status_update_button').click(function() 
+{
+	loopUpdateStatus();
 });
 
 $('#paste_address_button').click(function() 
@@ -162,6 +169,8 @@ function guiUpdate()
 		$('#balance').html(availableBalance);
 		// $('#balance').attr('title', availableBalance);
 	}
+
+	$('#status').html(statusInfo);
 	
 	incomingBitcoins = ((estimatedBalance*satoshisInABitcoin)-(availableBalance*satoshisInABitcoin))/satoshisInABitcoin;
 	if (incomingBitcoins>0)
@@ -316,17 +325,17 @@ $('#amount_to_send').keyup(function()
 	else if ($('#amount_to_send').val()===0)
 	{
 		$('#amount_to_send').css('border-color', '#ff0000');
-		$('#amount_alert').html('You can\'t send zero bitcoins!');
+		$('#amount_alert').html(i18n.__('You can\'t send zero.'));
 	}
 	else if ($('#amount_to_send').val()<0)
 	{
 		$('#amount_to_send').css('border-color', '#ff0000');
-		$('#amount_alert').html('You can\'t send negative amounts!');
+		$('#amount_alert').html(i18n.__('You can\'t send negative amounts.'));
 	}
 	else if (totalAmountToSend>availableBalance)
 	{
 		$('#amount_to_send').css('border-color', '#ff0000');
-		$('#amount_alert').html('You don\'t have enough bitcoin!');
+		$('#amount_alert').html(i18n.__('You don\'t have enough.'));
 	}
 	else
 	{
@@ -366,6 +375,12 @@ function loopUpdateBalance()
 	setTimeout(function(){ loopUpdateBalance(); }, 2500);
 }
 
+function loopUpdateStatus()
+{
+	sendCommand('get_status');
+	setTimeout(function(){ loopUpdateStatus(); }, 60000);
+}
+
 function loopUpdateTransactions()
 {
 	sendCommand('get_transactions');
@@ -398,6 +413,14 @@ function sendCommand(command)
 	{
 	  multichain.getBalance([],function(err, data) {
 	  	availableBalance = data;
+			guiUpdate();
+	  });	
+	}
+
+	if (command=='get_status')
+	{
+		multichain.getInfo([],function(err, data) {
+	  	statusInfo = formatStatusInfo(data);
 			guiUpdate();
 	  });	
 	}
@@ -618,7 +641,7 @@ function createTransactionTable(txs)
 	
 	//console.log(txs);
 
-	for (var i = 0; i < txs.length; i++) 
+	for (var i = txs.length - 1; i >=0 ; i--) 
 	{
 		transactionTable += '<tr>';
 		
@@ -628,7 +651,7 @@ function createTransactionTable(txs)
 
 		transactionTable += '<td>';
 		if (txs[i].addresses[0]) {
-		  transactionTable += '<a href="#" data-toggle="popover" title="' + txs[i].txid + '">' + txs[i].addresses[0] + '</a>';
+		  transactionTable += '<a href="#" data-toggle="popover" onclick="prompt(\'TX ID:\', \''+ txs[i].txid + '\');" ./title="' + txs[i].txid + '">' + txs[i].addresses[0] + '</a>';
 		} else if (txs[i].generated === true) {
 			transactionTable += '<a href="#" data-toggle="popover" title="' + txs[i].txid + '">Mined</a>';
 		} else {
@@ -643,7 +666,7 @@ function createTransactionTable(txs)
 
 		transactionTable += '<td>';
 		if (txs[i].balance.amount) {
-			transactionTable += txs[i].balance.amount + ' ' + wallet_settings.native_currency;
+			transactionTable += txs[i].balance.amount.toLocaleString('en-IN', { minimumFractionDigits : 8}) + ' ' + wallet_settings.native_currency;
 		} 
 
 
@@ -654,7 +677,7 @@ function createTransactionTable(txs)
 					transactionTable += '<br />';
 
 				if (txs[i].balance.assets && txs[i].balance.assets[ai].qty)
-					transactionTable += txs[i].balance.assets[ai].qty;
+					transactionTable += txs[i].balance.assets[ai].qty.toLocaleString('en-IN', { minimumFractionDigits : 2});
 
 				if (txs[i].balance.assets && txs[i].balance.assets[ai].name)
 					transactionTable += ' ' + txs[i].balance.assets[ai].name;
@@ -716,6 +739,28 @@ function loadAndShowApps()
 	}
 }
 
+function formatStatusInfo(dta) {
+	var t = '';
+	if (dta) {
+		t += i18n.__("Wallet Version") + ": " + wallet_settings.version;
+		t += '<p />';
+		t += i18n.__("Blockchain Version") + ": " + dta.version;
+		t += '<p />';
+		t += i18n.__("Blocks") + ": " + dta.blocks;
+		t += '<p />';
+		t += i18n.__("Connections") + ": " + dta.connections;
+		t += '<p />';
+		if (dta.errors && dta.errors.length) {
+			t += i18n.__("Errors") + ": " + dta.errors;
+			t += '<p />';
+		}
+	}
+	else
+	{
+		t += 'Status not available';
+	}
+  return(t);
+}
 
 function makePermissionString(permission) {
 	var t = '';

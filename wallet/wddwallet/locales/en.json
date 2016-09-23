@@ -61,5 +61,16 @@
 	"Warning: You already have an address.  Continue?": "Warning: You already have an address.  Continue?",
 	"Backup and Restore": "Backup and Restore",
 	"Warning: Backup will only work with one address.  More than one address found.": "Warning: Backup will only work with one address.  More than one address found.",
-	"Write down this list of 24 words to backup your wallet.": "Write down this list of 24 words to backup your wallet."
+	"Write down this list of 24 words to backup your wallet.": "Write down this list of 24 words to backup your wallet.",
+	"Status": "Status",
+	"Update": "Update",
+	"Status:": "Status:",
+	"Version": "Version",
+	"Blocks": "Blocks",
+	"Connections": "Connections",
+	"Errors": "Errors",
+	"Wallet Version: ": "Wallet Version: ",
+	"Wallet Version": "Wallet Version",
+	"Chain Version": "Chain Version",
+	"Blockchain Version": "Blockchain Version"
 }

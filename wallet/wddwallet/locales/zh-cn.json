@@ -46,10 +46,21 @@
 	"Warning: Backup will only work with one address.  More than one address found.": "警告：备份只适用于一个地址。系统找到多个地址。",
 	"Write down this list of 24 words to backup your wallet.": "写下含24个字的单词表来备份你的钱包。",
 	"Warning: You already have an address.  Continue?": "警告：你已经有一个地址。 继续？",
-	"Warning: No address found.":"警告：未找到地址。",
+	"Warning: No address found.": "警告：未找到地址。",
 	"Enter your 24 words.": "输入你的24个字。",
 	"Words are not valid.  Please check the words and try again.": "单词无效。请检查并重试。",
 	"Not enough words.": "单词不足。",
 	"Address not found.": "未找到地址。",
-	"Wallet restored.": "钱包已还原。"
+	"Wallet restored.": "钱包已还原。",
+	"Status:": "系统状态:",
+	"Status": "系统状态",
+	"Update": "状态更新",
+	"You can't send negative amounts.": "你不能发送数量为负数的币。",
+	"You don't have enough.": "你的币数量不足。",
+	"You can't send zero.": "你不能发送0个币。",
+	"Version": "版本",
+	"Blocks": "区块",
+	"Connections": "已连接电脑数量",
+	"Errors": "已发生的错误",
+	"Connnections": "Connnections"
 }

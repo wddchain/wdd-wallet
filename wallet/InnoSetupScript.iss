@@ -1,6 +1,6 @@
 [Setup]
 AppName=WDD Wallet
-AppVersion=0.9
+AppVersion=1.0
 DefaultDirName={pf}\WDDWallet
 DefaultGroupName=WDDWallet
 UninstallDisplayIcon={app}\WDDWallet.exe
@@ -24,6 +24,4 @@ Name: "{group}\WDDWallet"; Filename: "{app}\Wallet.exe"
 Filename: "{app}\VirtualBoxSetup.exe";  Description: "Installing VM to handle core wallet functions"
 Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import ""{app}/wddwallet.ova"""; Description: "Installing wallet VM"; Flags: runminimized
 Filename: "{app}\Wallet.exe"; Flags: postinstall
-
-
 

@@ -1,5 +1,6 @@
 {
  "debug": false,
+ "version": "v1.0.0",
  "native_currency": "WDD",
  "window_title": "The World Diamond Wallet",
  "chainname": "wdd",

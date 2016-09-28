@@ -6,7 +6,7 @@ nwb nwbuild -p linux64 -o ../output
 cd ..
 
 #Get newest multichain
-wget -O output/multichain.tar.gz http://www.multichain.com/download/multichain-1.0-alpha-23.tar.gz
+wget -O output/multichain.tar.gz http://www.multichain.com/download/multichain-1.0-alpha-24.tar.gz
 tar --one-top-level=multichain --strip-components=1 -xvzf output/multichain.tar.gz
 
 

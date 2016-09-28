@@ -49,12 +49,23 @@ if (global.wallet_settings.debug) {
 
 win.on('close', function() 
 {
+  var isWin = /^win/.test(process.platform);
+  var isMac = /^darwin/.test(process.platform);
 
 	win.hide();
 
   if (global.multichain) {
     global.multichain.stop([], function(err, data) {
-      win.close(true);
+      if (isWin || isMac) {
+          StopWalletVM(function (error, stdout, stderr) {
+            console.log('stdout: ' + stdout); console.log('stderr: ' + stderr); console.log('error: ' + error);
+            win.close(true);
+         });
+      }
+      else
+      {
+        win.close(true);
+      }
     });   
   }
   else
@@ -63,7 +74,7 @@ win.on('close', function()
     win.close(true);
   }
 
-  setTimeout(function(){ StopWalletVM(function (error, stdout, stderr) { console.log('stdout: ' + stdout); console.log('stderr: ' + stderr); console.log('error: ' + error); }); }, 1000 * 5);   
+  //setTimeout(function(){ StopWalletVM(function (error, stdout, stderr) { console.log('stdout: ' + stdout); console.log('stderr: ' + stderr); console.log('error: ' + error); }); }, 1000 * 5);   
 });
 
 function StopWalletVM(cb) 

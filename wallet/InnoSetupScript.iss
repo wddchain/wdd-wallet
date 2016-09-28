@@ -1,6 +1,6 @@
 [Setup]
 AppName=WDD Wallet
-AppVersion=1.0.1
+AppVersion=1.0.4
 DefaultDirName={pf}\WDDWallet
 DefaultGroupName=WDDWallet
 UninstallDisplayIcon={app}\WDDWallet.exe
@@ -11,10 +11,10 @@ OutputBaseFilename=WddWalletSetup
 ArchitecturesInstallIn64BitMode=ia64 x64
 
 [Files]
-Source: "output\Wallet-win-ia32\*"; DestDir: "{app}"
-Source: "output\Wallet-win-ia32\locales\*"; DestDir: "{app}\locales"
+Source: "output\Wallet-win-ia32\*"; DestDir: "{app}"; Flags: ignoreversion
+Source: "output\Wallet-win-ia32\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion
 Source: "wddwallet\plink.exe"; DestDir: "{app}"
-Source: "multichain_appliance\wddwallet.ova"; DestDir: "{app}"
+Source: "multichain_appliance\wddwallet.ova"; DestDir: "{app}"; Flags: ignoreversion
 Source: "vbox_setup\VirtualBoxSetup.exe"; DestDir: "{app}"
 
 [Icons]
@@ -22,6 +22,6 @@ Name: "{group}\WDDWallet"; Filename: "{app}\Wallet.exe"
 
 [Run]
 Filename: "{app}\VirtualBoxSetup.exe";  Description: "Installing VM to handle core wallet functions"
-Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import ""{app}/wddwallet.ova"""; Description: "Installing wallet VM"; Flags: runminimized
+Filename: "{pf}\Oracle\VirtualBox\VBoxManage.exe"; Parameters: "import ""{app}/wddwallet.ova"""; StatusMsg: "Importing VM"; Description: "Installing wallet VM"; Flags: runminimized
 Filename: "{app}\Wallet.exe"; Flags: postinstall
 

@@ -152,21 +152,52 @@ $('#send_bitcoins_button').click(function()
 $('#send_asset_button').click(function() 
 {
 	console.log('Amount of send ('+$('#asset').val().toString() + ': '+$('#asset_amount_to_send').val().toString());
+
+  var amt = getValueWithPrecision($('#asset_amount_to_send').val(), getAssetMultiple($('#asset').val().toString()));
+
+  if (amt != $('#asset_amount_to_send').val()) {
+    var rslt = confirm($('#asset').val().toString() + ' is only divisible to 2 decimal places.  Send ' + amt + '?');
+    if (rslt == false)
+      return;
+  }
+
+  if (amt <= 0) {
+    alert(i18n.__('Must be a positive amount.'));
+    return;
+  }
 		
 	setSendingEnabledState(false);
 	
 	sendingAssetStatus = 'Sending asset...';
 	guiUpdate();
 	
-	sendAsset($('#asset').val().toString(), $('#send_asset_to_address').val(),$('#asset_amount_to_send').val().toString());
+	sendAsset($('#asset').val().toString(), $('#send_asset_to_address').val(),amt.toString());
 });
 
+function getAssetMultiple(asset_name) {
+  if (assetList) {
+    for(var i=0;i<assetList.length;i++) {
+      if (assetList[i].name == asset_name) {
+        return(assetList[i].multiple);
+      }
+    }
+  }
+  return(1);   //Default to 1:1 ratio
+}
+
+//multiple is returned by listassets.
+//Example: multiple is 100 for two decimal places
+//Truncates to proper multiple
+function getValueWithPrecision(x, multiple) {
+  var amount = parseInt(x * multiple) / multiple;
+  return(amount);
+}
 
 function guiUpdate()
 {
 	if (typeof availableBalance!='undefined')
 	{
-		$('#balance').html(availableBalance);
+		$('#balance').html(availableBalance.toLocaleString('en-IN', { minimumFractionDigits : 8}));
 		// $('#balance').attr('title', availableBalance);
 	}
 
@@ -196,7 +227,7 @@ function guiUpdate()
 		}
 	}
 
-	if (localStorage.getItem('language_setting')) {
+	if (localStorage && localStorage.getItem('language_setting')) {
 		$('#language_setting').val(localStorage.getItem('language_setting'));
 	}
 	

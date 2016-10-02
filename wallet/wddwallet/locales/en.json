@@ -74,5 +74,8 @@
 	"Chain Version": "Chain Version",
 	"Blockchain Version": "Blockchain Version",
 	"Want to send currency to someone? Fill in the space below.": "Want to send currency to someone? Fill in the space below.",
-	"Want to send a voucher? Fill in the space below.": "Want to send a voucher? Fill in the space below."
+	"Want to send a voucher? Fill in the space below.": "Want to send a voucher? Fill in the space below.",
+	"Refresh": "Refresh",
+	"Must be a positive value": "Must be a positive value",
+	"Must be a positive amount.": "Must be a positive amount."
 }

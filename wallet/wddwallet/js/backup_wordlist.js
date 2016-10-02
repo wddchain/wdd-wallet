@@ -38,6 +38,10 @@ $('#show_wordlist_button').click(function()
       // prompt('Buffer: ',  pKeyBuffer.toString('hex'));
       //alert(JSON.stringify(data));
       mnemonicToPrivateKey(wordlist, data.chainparams['private-key-version'], data.chainparams['address-checksum-value']);
+
+      if (localStorage) {
+        localStorage.setItem('backup_complete', 1);
+      }
     }
   });
 

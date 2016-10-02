@@ -42,6 +42,7 @@ loopUpdateStatus();
 loopUpdateBalance();
 loopUpdateFiatValue();
 loopUpdateTransactions();
+loopCheckForBackup();
 //loadAndShowApps();
 loadAssets();
 setTimeout(function(){ loadOwnedAssets(); }, 1000*1); //One second to get main address
@@ -237,7 +238,7 @@ function guiUpdate()
 		qrcode.makeCode(mainAddress);
 		$('#main_address_qrcode').attr('title', '');
 	}
-	
+
 	if (typeof minFee!='undefined')
 	{
 		$('#min_fee').html(minFee);
@@ -435,6 +436,23 @@ function loadOwnedAssets()
 	sendCommand('load_owned_assets');
 	setTimeout(function(){ loadOwnedAssets(); }, 1000*5); //Five second update on assets
 }
+
+//Remind each 24 hour day about backup until complete
+function loopCheckForBackup()
+{
+  if (typeof mainAddress!='undefined')
+  {
+    //alert(Date.now());
+    if (localStorage && !(localStorage.getItem('backup_complete')) && (parseInt(localStorage.getItem('last_backup_notice')) < Date.now() - 60 * 60 * 24 )) {
+      if (confirm(i18n.__('It is very important to write down the 24 recovery words for your wallet.  Do it now?'))) {
+        window.location = 'backup_wordlist.html'; 
+      }
+      localStorage.setItem('last_backup_notice', Date.now());
+    }
+  }
+  setTimeout(function(){ loopCheckForBackup(); }, 1000*60); //Sixty second update on assets
+}
+
 
 function sendCommand(command) 
 {

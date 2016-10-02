@@ -77,5 +77,6 @@
 	"Want to send a voucher? Fill in the space below.": "Want to send a voucher? Fill in the space below.",
 	"Refresh": "Refresh",
 	"Must be a positive value": "Must be a positive value",
-	"Must be a positive amount.": "Must be a positive amount."
+	"Must be a positive amount.": "Must be a positive amount.",
+	"It is very important to write down the 24 word recovery words for your wallet.  Do it now?": "It is very important to write down the 24 word recovery words for your wallet.  Do it now?"
 }

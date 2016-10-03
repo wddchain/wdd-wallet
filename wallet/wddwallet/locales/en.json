@@ -54,7 +54,6 @@
 	"Write down this list of twelve words to back up your wallet.": "Write down this list of twelve words to back up your wallet.",
 	"Valid words": "Valid words",
 	"Write down this list of 24 words to back up your wallet.": "Write down this list of 24 words to back up your wallet.",
-	"Enter your 12 words.": "Enter your 12 words.",
 	"Wallet restored.": "Wallet restored.",
 	"Enter your 24 words.": "Enter your 24 words.",
 	"You already have an address.  Continue?": "You already have an address.  Continue?",
@@ -76,7 +75,8 @@
 	"Want to send currency to someone? Fill in the space below.": "Want to send currency to someone? Fill in the space below.",
 	"Want to send a voucher? Fill in the space below.": "Want to send a voucher? Fill in the space below.",
 	"Refresh": "Refresh",
-	"Must be a positive value": "Must be a positive value",
 	"Must be a positive amount.": "Must be a positive amount.",
+	" is only divisible to %s decimal places.": " is only divisible to %s decimal places.",
+	"Send %s?": "Send %s?",
 	"It is very important to write down the 24 word recovery words for your wallet.  Do it now?": "It is very important to write down the 24 word recovery words for your wallet.  Do it now?"
 }

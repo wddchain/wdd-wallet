@@ -14,6 +14,7 @@ var sendingStatus;
 var transactionTable;
 var statusInfo;
 
+var util = require('util');
 var fs = require('fs');
 wallet_settings = JSON.parse(fs.readFileSync('./wallet_settings.json').toString());
 console.log(global.wallet_settings);
@@ -150,14 +151,17 @@ $('#send_bitcoins_button').click(function()
 });
 
 
+//Just UI handling of mismatched precision between asset precision and what user enters.
 $('#send_asset_button').click(function() 
 {
 	console.log('Amount of send ('+$('#asset').val().toString() + ': '+$('#asset_amount_to_send').val().toString());
 
   var amt = getValueWithPrecision($('#asset_amount_to_send').val(), getAssetMultiple($('#asset').val().toString()));
 
+  var factor = getAssetFactorFromMultple(getAssetMultiple($('#asset').val().toString()));
+
   if (amt != $('#asset_amount_to_send').val()) {
-    var rslt = confirm($('#asset').val().toString() + ' is only divisible to 2 decimal places.  Send ' + amt + '?');
+    var rslt = confirm($('#asset').val().toString() + util.format(i18n.__(' is only divisible to %s decimal places.'), factor.toString()) + ' ' + util.format(i18n.__('Send %s?'), amt.toString()));
     if (rslt == false)
       return;
   }
@@ -174,6 +178,15 @@ $('#send_asset_button').click(function()
 	
 	sendAsset($('#asset').val().toString(), $('#send_asset_to_address').val(),amt.toString());
 });
+
+//Multiple is 1 or 10, or 100, or 1000, or 10000
+//Returns 0, or 1, or 2, or 3 or 4, etc.
+function getAssetFactorFromMultple(multiple) {
+  if (multiple) {
+    return(multiple.toString().length -1)
+  }
+  return(0);
+}
 
 function getAssetMultiple(asset_name) {
   if (assetList) {

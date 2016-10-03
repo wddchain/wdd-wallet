@@ -36,8 +36,6 @@
 	"Language": "语言",
 	"Chinese": "中文",
 	"English": "英文",
-	"Please make regular backups and keep them secure.": "Please make regular backups and keep them secure.",
-	"Use a thumbdrive with lots of room.": "Use a thumbdrive with lots of room.",
 	"Backup Wallet": "备份钱包",
 	"Backup": "备份",
 	"Show Word List": "显示单词表",
@@ -61,6 +59,12 @@
 	"Version": "版本",
 	"Blocks": "区块",
 	"Connections": "已连接电脑数量",
+	"It is very important to write down the 24 word recovery words for your wallet.  Do it now?": "写下含24个字的单词表来备份你的钱包是非常重要的。 要现在做吗？",
+	"Must be a positive amount.": "必须为正数。",
+	" is only divisible to %s decimal places.": " 只能整除为%s位小数。",
+	"Send %s?": "发送 %s 个币？",
 	"Errors": "已发生的错误",
-	"Connnections": "Connnections"
+	"Refresh": "刷新",
+	"Wallet Version": "钱包版本",
+	"Blockchain Version": "区块链版本"
 }

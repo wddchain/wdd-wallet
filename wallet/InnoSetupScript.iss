@@ -1,7 +1,7 @@
 [Setup]
 AppName=WDD Wallet
-AppVersion=1.0.6
-VersionInfoVersion=1.0.6.0
+AppVersion=1.0.7
+VersionInfoVersion=1.0.7.0
 DefaultDirName={pf}\WDDWallet
 DefaultGroupName=WDDWallet
 UninstallDisplayIcon={app}\WDDWallet.exe

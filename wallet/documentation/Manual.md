@@ -9,9 +9,7 @@
 [Sending a Voucher](#SendVoucher)  
 [Transaction History](#History)  
 [Settings](#Settings)  
-
-
-
+[Status](#Status)  
 
 <a name="WinInstall">
 ###Windows Installation of WDD Wallet
@@ -124,11 +122,11 @@ Show general status of the program and the blockchain.
 
 <a href="" target="_blank"><img src="Status.png"/></a>
 
-**Version** lets you know the version of the client.  
+**Wallet Version** lets you know the version of the client wallet.  
 
-**Blockchain Version** gives you the version of the blockchain software which secures and records transactions.  
+**Blockchain Version** gives you the version of the blockchain software which secures, signs, transmits, and permanently records transactions.  
 
-**Blocks** provides the number of blocks that your client has downloaded.  This must catch up to the current block height for new transactions to be displayed.  
+**Blocks** provides the number of blocks that your client has downloaded.  This number must catch up to the current block height for new transactions to be displayed.  
 
 **Connections** shows the number of connections your client has made to update the blockchain.  
 

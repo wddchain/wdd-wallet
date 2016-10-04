@@ -8,4 +8,7 @@ cat WinInstall.md LinuxInstall.md Receiving.md SendWDD.md SendVoucher.md History
 sed -r "s/([a-zA-Z]*)\.md/#\1/g" README.md > Manual.md
 cat Manual_for_PDF_and_ODT_export.md >> Manual.md
 
+#Make a version with the translated images
+sed -r "s/([a-zA-Z_]*)\.png/\1_SC.png/g" Manual.md > Manual_SC.md
+
 #Use a utility like ReText to convert to html, pdf, and odt

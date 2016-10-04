@@ -9,7 +9,5 @@
 [Sending a Voucher](SendVoucher.md)  
 [Transaction History](History.md)  
 [Settings](Settings.md)  
-
-
-
+[Status](Status.md)  
 

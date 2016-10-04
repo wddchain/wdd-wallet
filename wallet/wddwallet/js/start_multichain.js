@@ -18,7 +18,8 @@ if (wallet_settings.vmname != '') {
     //multichainCommandRunner = 'bashfix "bash -c run.sh ';
   }
   else if (isMac) {
-    multichainStartVM = 'VBoxManage startvm '+wallet_settings.vmname+' -type headless ; ';
+    //Assume VM is running
+    //multichainStartVM = 'VBoxManage startvm '+wallet_settings.vmname+' -type headless ; ';
     multichainCommandRunner = 'ssh -o StrictHostKeyChecking=no -p 8322 -i id_rsa-wdd@vm.ppk wdd@' + wallet_settings.multichain.host + ' ';
   }
   else //Native multichaind

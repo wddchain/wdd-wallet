@@ -1,3 +1,16 @@
+<a name="TOC">
+###WDD Wallet
+
+[Windows Install](#WinInstall)   
+[Linux Install](#LinuxInstal)   
+[Backup your Wallet](#Backup)    
+[Receiving Vouchers or WDD](#Receiving)  
+[Sending WDD](#SendWDD)  
+[Sending a Voucher](#SendVoucher)  
+[Transaction History](#History)  
+[Settings](#Settings)  
+[Status](#Status)  
+
 <a name="WinInstall">
 ###Windows Installation of WDD Wallet
 Download the installer from [http://64.19.211.41/wdd/WddWalletSetup.exe](http://64.19.211.41/wdd/WddWalletSetup.exe) to your download folder.
@@ -54,7 +67,7 @@ Replace ```<file>``` with the filename of your download.
 ###Receiving Vouchers or WDD
 For others to send WDD or Assets to you, they will need your address.  
 
-<a href="" target="_blank"><img src="Receiving.png"/></a>
+<a href="" target="_blank"><img src="Receiving_SC.png"/></a>
 
 
 You can give them the address text string which looks like this:   
@@ -67,7 +80,7 @@ You can copy/paste the address or qr code from the application to an e-mail.
 ###Sending WDD
 To send WDD to others.  
 
-<a href="" target="_blank"><img src="SendWDD.png"/></a>
+<a href="" target="_blank"><img src="SendWDD_SC.png"/></a>
 
 Paste their address into __Send to__:   This is like their account number.  If you have their QR code, and your computer has a camera, then hit [Scan QR Code] to allow the camera to see the QR code image.  If it is a valid address, it will be recognized automatically and entered for you.
 
@@ -78,7 +91,7 @@ If you are connected to the internet, the WDD will be sent.  It will usually sho
 ###Sending a Voucher
 To send a voucher.  
 
-<a href="" target="_blank"><img src="SendVoucher.png"/></a>
+<a href="" target="_blank"><img src="SendVoucher_SC.png"/></a>
 
 Select the voucher you wish to send.  If the Voucher list is empty, you do not have any vouchers.
 
@@ -94,20 +107,20 @@ If you are connected to the internet, the Voucher will be sent.
 
 View the transaction history of your account.
 
-<a href="" target="_blank"><img src="History.png"/></a>
+<a href="" target="_blank"><img src="History_SC.png"/></a>
 <a name="Settings">
 ###Settings
 
 Select your preferred language.
 
-<a href="" target="_blank"><img src="Settings.png"/></a>
+<a href="" target="_blank"><img src="Settings_SC.png"/></a>
 
 **Backup and Restore** to back up your private keys.
 <a name="Status">
 ###Status
 Show general status of the program and the blockchain.  
 
-<a href="" target="_blank"><img src="Status.png"/></a>
+<a href="" target="_blank"><img src="Status_SC.png"/></a>
 
 **Wallet Version** lets you know the version of the client wallet.  
 
@@ -125,7 +138,7 @@ Hit the 'Backup and Restore' button.
 Hit the 'Show Words' button to show the 24 words.  
 Write the words down, and save the paper.*  
 
-<a href="" target="_blank"><img src="Backup.png"/></a>
+<a href="" target="_blank"><img src="Backup_SC.png"/></a>
 
 <small>*It is important to keep your backup in a secure location.</small>
 
